@@ -37,10 +37,7 @@ public class Recursion{
 	
 	public static int fibHelper(int other, int sum, int n){
 		if (n==0){
-			return 0;
-		}
-		if (n==1){
-			return 1;
+			return sum;
 		}
 		return fibHelper(sum, other + sum, n-1);
 	}
