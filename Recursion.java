@@ -5,13 +5,21 @@ public class Recursion{
 		//System.out.println(fact(1));
 		//System.out.println(fact(2));
 		//System.out.println(fact(3));
+		// 0
+		System.out.println(fib(0));
+		// 1
+		System.out.println(fib(1));
+		// 1
+		System.out.println(fib(2));
+		// 2
+		System.out.println(fib(3));
 	}
 
 	public int fact(int n){
-		if (n<0){
+		if(n<0){
 			throw new IllegalArgumentException();
 		}
-		if (n==0){
+		if(n==0){
 			return 1;
 		}
 		else{
@@ -20,8 +28,19 @@ public class Recursion{
 	}
 	
 	public static int fib(int n){
-		if (n<0){
+		if(n<0){
 			throw new IllegalArgumentException();
 		}
+		return fibHelper(0, 1, n);
+	}
+	
+	public static int fibHelper(int first, int second, int n){
+		if(n==0){
+			return 0;
+		}
+		if(n==1){
+			return 1;
+		}
+		return fibHelper(second, first + second, n-1); 
 	}
 }
