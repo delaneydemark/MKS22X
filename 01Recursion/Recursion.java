@@ -46,6 +46,9 @@ public class Recursion{
 		if (n<0){
 			throw new IllegalArgumentException();
 		}
+		if (n==0){
+			return 0;
+		}
 	}
 	
 	
