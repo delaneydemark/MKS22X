@@ -7,13 +7,13 @@ public class Recursion{
 		//System.out.println(fact(3));
 		
 		// 0
-		System.out.println(fib(0));
+		//System.out.println(fib(0));
 		// 1
-		System.out.println(fib(1));
+		//System.out.println(fib(1));
 		// 1
-		System.out.println(fib(2));
+		//System.out.println(fib(2));
 		// 2
-		System.out.println(fib(3));
+		//System.out.println(fib(3));
 	}
 
 	public int fact(int n){
@@ -28,7 +28,7 @@ public class Recursion{
 		}
 	}
 	
-	public static int fib(int n){
+	public int fib(int n){
 		if (n<0){
 			throw new IllegalArgumentException();
 		}
@@ -41,4 +41,12 @@ public class Recursion{
 		}
 		return fibHelper(sum, other + sum, n-1);
 	}
+	
+	public static double sqrt(double n){
+		if (n<0){
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	
 }
