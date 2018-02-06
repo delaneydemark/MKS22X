@@ -34,13 +34,13 @@ public class Recursion{
 		return fibHelper(0, 1, n);
 	}
 	
-	public static int fibHelper(int first, int second, int n){
+	public static int fibHelper(int other, int sum, int n){
 		if(n==0){
-			return 0;
+			return sum;
 		}
-		if(n==1){
+	/*if(n==1){
 			return 1;
-		}
-		return fibHelper(second, first + second, n-1); 
+		}*/
+		return fibHelper(sum, other + sum, n-1); 
 	}
 }
