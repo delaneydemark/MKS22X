@@ -1,33 +1,34 @@
 import java.lang.*;
 
 public class Recursion{
-	
+	/*
 	public static void main(String[] args){
-		//System.out.println(fact(0));
-		//System.out.println(fact(1));
-		//System.out.println(fact(2));
-		//System.out.println(fact(3));
+		System.out.println(fact(0));
+		System.out.println(fact(1));
+		System.out.println(fact(2));
+		System.out.println(fact(3));
 		
 		// 0
-		//System.out.println(fib(0));
+		System.out.println(fib(0));
 		// 1
-		//System.out.println(fib(1));
+		System.out.println(fib(1));
 		// 1
-		//System.out.println(fib(2));
+		System.out.println(fib(2));
 		// 2
-		//System.out.println(fib(3));
+		System.out.println(fib(3));
 		
 		// 0
-		//System.out.println(sqrt(0));
+		System.out.println(sqrt(0));
 		// ~1
-		//System.out.println(sqrt(1));
+		System.out.println(sqrt(1));
 		// ~2
-		//System.out.println(sqrt(4));
+		System.out.println(sqrt(4));
 		// ~3
-		//System.out.println(sqrt(9));
+		System.out.println(sqrt(9));
 		// ~4
-		//System.out.println(sqrt(16));
+		System.out.println(sqrt(16));
 	}
+	*/
 
 	public int fact(int n){
 		if (n<0){
