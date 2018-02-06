@@ -66,7 +66,7 @@ public class Recursion{
 	
 	public static double sqrtHelper(double guess, double n){
 		double error = Math.abs(((guess * guess - n) / n));
-		if(error < 0.00000000000001){
+		if(error < 0.000000000000001){
 			return guess;
 		}
 		guess = (n / guess + guess) / 2;
