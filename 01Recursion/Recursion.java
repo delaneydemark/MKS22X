@@ -1,4 +1,4 @@
-import java.lang.*
+import java.lang.*;
 
 public class Recursion{
 	
@@ -16,6 +16,15 @@ public class Recursion{
 		//System.out.println(fib(2));
 		// 2
 		//System.out.println(fib(3));
+		
+		// 0
+		System.out.println(sqrt(0));
+		// ~1
+		System.out.println(sqrt(1));
+		// ~2
+		System.out.println(sqrt(4));
+		// ~3
+		System.out.println(sqrt(9));
 	}
 
 	public int fact(int n){
