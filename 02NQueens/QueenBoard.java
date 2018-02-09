@@ -15,7 +15,26 @@ public class QueenBoard{
 		    s+="_";
 		}
 	    }
+	    s+="\n";
 	}
 	return s;
+    }
+
+
+    
+    private boolean addQueen(int r, int c){
+	if(board[r][c]==0){
+	    board[r][c]=-1;
+	    return true;
+	}
+	return false;
+    }
+
+    private boolean removeQueen(int r, int c){
+	if(board[r][c]==-1){
+ 	    board[r][c]=0;
+	    return true;
+	}
+	return false;
     }
 }
