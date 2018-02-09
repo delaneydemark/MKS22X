@@ -26,6 +26,16 @@ public class QueenBoard{
 	if(board[r][c]==0){
 	    board[r][c]=-1;
 	    return true;
+	    for(int i = 0; i<board[r].length; i++){
+		if(i!=c){
+		    board[r][i]+=1;
+		}
+	    }
+	    for(int i = 0; i<board.length; i++){
+		if(i!=r){
+		    board[i][c]+=1;
+		}
+	    }
 	}
 	return false;
     }
@@ -36,5 +46,10 @@ public class QueenBoard{
 	    return true;
 	}
 	return false;
+    }
+
+    public static void main(String[] args){
+	QueenBoard test = new QueenBoard(3);
+	System.out.println(test.toString());
     }
 }
