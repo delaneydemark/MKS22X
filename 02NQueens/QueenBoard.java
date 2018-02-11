@@ -95,8 +95,26 @@ public class QueenBoard{
 	return false;
     }
 
+    public String boardNums(){
+	String s = "";
+	for(int i = 0; i<board.length; i++){
+	    for(int j = 0; j<board[i].length; j++){
+		s+=" " + board[i][j] + " ";
+	    }
+	    s+="\n";
+	}
+	return s;
+    }
+
     public static void main(String[] args){
 	QueenBoard test = new QueenBoard(3);
 	System.out.println(test.toString());
+	test.addQueen(1,1);
+	for(int i = 0; i<3; i++){
+	    for(int j = 0; j<3; j++){
+		System.out.print(test[i][j]);
+	    }
+	    System.out.print("\n");
+	}
     }
 }
