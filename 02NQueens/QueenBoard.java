@@ -134,6 +134,26 @@ public class QueenBoard{
 	return false;
     }
 
+    public int countSolutions(){
+	for(int i = 0; i<board.length; i++){
+	    for(int j = 0; j<board[i].length; j++){
+		if(board[i][j]!=0){
+		    throw new IllegalStateException();
+		}
+	    }
+	}
+	solve();
+	int sum = 0;
+	for (int i = 0; i<board.length; i++){
+	    for (int j = 0; j<board[i].length; j++){
+		if (board[i][j]==-1){
+		    sum+=1;
+		}
+	    }
+	}
+	return sum;
+    }
+
     public static void main(String[] args){
 	QueenBoard test = new QueenBoard(4);
 	/*System.out.println(test.toString());
