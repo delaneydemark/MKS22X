@@ -42,7 +42,7 @@ public class QueenBoard{
 		    board[i][c]+=1;
 		}
 	    }
-	    for(int i = 1; r+i<board.length; i++){
+	    for(int i = 1; r+i<board.length && c+i<board[r+i].length; i++){
 		board[r+i][c+i]+=1;
 	    }
 	    for(int i = 1; c+i<board.length && r-i>=0; i++){
@@ -54,7 +54,7 @@ public class QueenBoard{
 		}
 		board[r-i][c-i]+=1;
 	    }
-	    for(int i = 1; c-i>=0 && i<board.length; i++){
+	    for(int i = 1; c-i>=0 && r+i<board.length; i++){
 		if(board[r+i][c-i]==-1){
 		    return false;
 		}
@@ -79,7 +79,7 @@ public class QueenBoard{
 		    board[i][c]-=1;
 		}
 	    }
-	    for(int i = 1; r+i<board.length; i++){
+	    for(int i = 1; r+i<board.length && c+i<board[r+i].length; i++){
 		board[r+i][c+i]-=1;
 	    }
 	    for(int i = 1; c+i<board.length && r-i>=0; i++){
@@ -88,7 +88,7 @@ public class QueenBoard{
 	    for(int i = 1; c-i>=0 && r-i>=0; i++){
 		board[r-i][c-i]-=1;
 	    }
-	    for(int i = 1; c-i>=0 && i<board.length; i++){
+	    for(int i = 1; c-i>=0 && r+i<board.length; i++){
 		board[r+i][c-i]-=1;
 	    }
  	    board[r][c]=0;
@@ -123,10 +123,10 @@ public class QueenBoard{
 	if(c == board.length){
 	    return true;
 	}
-	for(int i = 0, i<board.length; i++){
+	for(int i = 0; i<board.length; i++){
 	    if(addQueen(i,c)){
 		if(solveHelper(c+1)){
-		    return true
+		    return true;
 		}
 		removeQueen(i,c);
 	    }
@@ -135,18 +135,18 @@ public class QueenBoard{
     }
 
     public static void main(String[] args){
-	QueenBoard test = new QueenBoard(3);
-	System.out.println(test.toString());
-	/*test.addQueen(1,1);
+	QueenBoard test = new QueenBoard(4);
+	/*System.out.println(test.toString());
+	test.addQueen(1,1);
 	System.out.println(test.boardNums());
 	System.out.println(test.toString());
 	test.removeQueen(1,1);
 	System.out.println(test.boardNums());
 	System.out.println(test.toString());
 	*/
-	if(test.addQueen(1,1)){
-	    
-	}
+	System.out.println(test.solve());
+	System.out.println(test.boardNums());
+	System.out.println(test.toString());
 	
     }
 }
