@@ -123,6 +123,15 @@ public class QueenBoard{
 	if(c == board.length){
 	    return true;
 	}
+	for(int i = 0, i<board.length; i++){
+	    if(addQueen(i,c)){
+		if(solveHelper(c+1)){
+		    return true
+		}
+		removeQueen(i,c);
+	    }
+	}
+	return false;
     }
 
     public static void main(String[] args){
