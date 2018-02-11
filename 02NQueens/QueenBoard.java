@@ -115,6 +115,13 @@ public class QueenBoard{
 		    throw new IllegalStateException();
 		}
 	    }
+        }
+	return solveHelper(0);
+    }
+
+    public boolean solveHelper(int c){
+	if(c == board.length){
+	    return true;
 	}
     }
 
@@ -128,5 +135,9 @@ public class QueenBoard{
 	System.out.println(test.boardNums());
 	System.out.println(test.toString());
 	*/
+	if(test.addQueen(1,1)){
+	    
+	}
+	
     }
 }
