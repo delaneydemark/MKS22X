@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class QueenBoard{
     private int[][] board;
 
@@ -106,11 +108,25 @@ public class QueenBoard{
 	return s;
     }
 
+    public boolean solve(){
+	for(int i = 0; i<board.length; i++){
+	    for(int j = 0; j<board[i].length; j++){
+		if(board[i][j]!=0){
+		    throw new IllegalStateException();
+		}
+	    }
+	}
+    }
+
     public static void main(String[] args){
 	QueenBoard test = new QueenBoard(3);
 	System.out.println(test.toString());
-	test.addQueen(1,1);
+	/*test.addQueen(1,1);
 	System.out.println(test.boardNums());
 	System.out.println(test.toString());
+	test.removeQueen(1,1);
+	System.out.println(test.boardNums());
+	System.out.println(test.toString());
+	*/
     }
 }
