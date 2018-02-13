@@ -141,19 +141,17 @@ public class QueenBoard{
 		    throw new IllegalStateException();
 		}
 	    }
+	}	
+	return countHelper(0,0,0);
+    }
+
+    public int countHelper(int r, int c, int count){
+	if(c==0){
+	    return count;
 	}
-	int sum = 0;
-	if(this.solve()){
-	    for (int i = 0; i<board.length; i++){
-		for (int j = 0; j<board[i].length; j++){
-		    if (board[i][j]==-1){
-			sum+=1;
-		    }
-		}
-	    }
+	if(c >= board[r].length){
+	    count+=1;
 	}
-	
-	return sum;
     }
 
     /*public static void main(String[] args){
