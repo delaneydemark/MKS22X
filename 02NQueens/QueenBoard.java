@@ -142,15 +142,35 @@ public class QueenBoard{
 		}
 	    }
 	}	
-	return countHelper(0,0,0);
+	return countHelper(0, 0, 0, true);
     }
 
-    public int countHelper(int r, int c, int count){
-	if(c==0){
+    public int countHelper(int r, int c, int count, boolean forward){
+	if(c==0 && r==board.length){
 	    return count;
 	}
-	if(c >= board[r].length){
+	if(c > board.length){
 	    count+=1;
+	    forward=false;
+	}
+	if(forward){
+	   for(int i = 0; i<board.length; i++){
+	       if(addQueen(i,c)){
+		   countHelper(0, c+1, count, forward);
+	       }else if(){
+		   forward=false;
+		   countHelper(0, c-1, count, forward) ;
+	       }
+	   }
+	}else{
+	    for(int i = r, i>=0; i--){
+		for(int j = c; j>=0; j--){
+		    if(removeQueen(i,j)){
+			forward = true;
+			countHelper(i+1, j, count, forward);
+		    }
+		}
+	    }
 	}
     }
 
