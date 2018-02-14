@@ -1,3 +1,5 @@
+import java
+
 public class KnightBoard{
     int board[][];
 
@@ -8,7 +10,7 @@ public class KnightBoard{
     public String toString(){
 	String s = "";
 	for(int i = 0; i<board.length; i++){
-	    for(int j = 0; j<board.length; j++){
+	    for(int j = 0; j<board[i].length; j++){
 		if(board.length*board.length <= 10){
 		    if(board[i][j]==0){
 			s+=" _ ";
@@ -37,11 +39,16 @@ public class KnightBoard{
 	    throw new IllegalArgumentException();
 	}
 	for(int i = 0; i<board.length; i++){
-	    for(int j = 0; j<board.length; j++){
+	    for(int j = 0; j<board[i].length; j++){
 		if(board[i][j]!= 0){
 		    throw new IllegalArgumentException();
 		}
 	    }
 	}
+	return solveH(0,0,0);
+    }
+
+    private boolean solveH(int row, int col, int level){
+	
     }
 }
