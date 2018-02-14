@@ -28,5 +28,20 @@ public class KnightBoard{
 		
 	    }
 	}
+	return s;
+    }
+
+    public boolean solve(int startingRow, int startingCol){
+	if(startingRow<0 || startingRow>=board.length || startingCol<0 ||
+	   startingCol>=board.length){
+	    throw new IllegalArgumentException();
+	}
+	for(int i = 0; i<board.length; i++){
+	    for(int j = 0; j<board.length; j++){
+		if(board[i][j]!= 0){
+		    throw new IllegalArgumentException();
+		}
+	    }
+	}
     }
 }
