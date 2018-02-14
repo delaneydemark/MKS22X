@@ -142,51 +142,35 @@ public class QueenBoard{
 		}
 	    }
 	}	
-	return countHelper(0, 0, 0, true);
+	return countHelper(0);
     }
 
-    public int countHelper(int r, int c, int count, boolean forward){
-	if(c==0 && r==board.length){
-	    return count;
+    public int countHelper(int c){
+	int count = 0;
+	if(c >= board.length){
+	    return 1;
 	}
-	if(c > board.length){
-	    count+=1;
-	    forward=false;
-	}
-	if(forward){
 	   for(int i = 0; i<board.length; i++){
 	       if(addQueen(i,c)){
-		   countHelper(0, c+1, count, forward);
-	       }else if(){
-		   forward=false;
-		   countHelper(0, c-1, count, forward) ;
+		   count+=countHelper(c+1);
+		   removeQueen(i,c);
 	       }
 	   }
-	}else{
-	    for(int i = r, i>=0; i--){
-		for(int j = c; j>=0; j--){
-		    if(removeQueen(i,j)){
-			forward = true;
-			countHelper(i+1, j, count, forward);
-		    }
-		}
-	    }
-	}
+	return count;
     }
 
     /*public static void main(String[] args){
-	QueenBoard test = new QueenBoard(5);
-	System.out.println(test.toString());
-	test.addQueen(1,1);
-	System.out.println(test.boardNums());
-	System.out.println(test.toString());
-	test.removeQueen(1,1);
-	System.out.println(test.boardNums());
-	System.out.println(test.toString());
-	
-	System.out.println(test.countSolutions());
-	System.out.println(test.boardNums());
-	System.out.println(test.toString());
-	
+	QueenBoard a = new QueenBoard(4);
+	System.out.println(a.toString());
+	System.out.println(a.solve());
+	System.out.println(a.boardNums());
+	System.out.println(a.toString());
+	for(int i = 0; i<10; i++){
+	    QueenBoard test = new QueenBoard(i);
+	    System.out.println(test.countSolutions());
+	    //System.out.println(test.toString());
+	}
+	String s = "0x0:1 1x1:1 2x2:0 \n 3x3:0 4x4:2 5x5:10 \n 6x6:4 7x7:40 8x8:92 \n 9x9:352";
+	System.out.println(s);
 	}*/
 }
