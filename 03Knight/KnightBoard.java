@@ -1,12 +1,10 @@
-import java
-
 public class KnightBoard{
     int board[][];
     int possibleMoves[][] = {{2,1},{1,2},{-1,-2},{-2,-1},
-			     {-1,2},{2,-1},{-2,1},{1,-2}}
+			     {-1,2},{2,-1},{-2,1},{1,-2}};
 
     public KnightBoard(int startingRows, int startingCols){
-	board = new board[startingRows][startingCols];
+	board = new int[startingRows][startingCols];
     }
 
     public String toString(){
@@ -31,6 +29,7 @@ public class KnightBoard{
 		}
 		
 	    }
+	    s+="\n";
 	}
 	return s;
     }
@@ -57,12 +56,21 @@ public class KnightBoard{
 	for(int i = 0; i<possibleMoves.length; i++){
 	    int r = row+possibleMoves[i][0];
 	    int c = col+possibleMoves[i][1];
-	    if(!(r<0) && !(r>=board.length) && !(c<0) && !(c>=board[row].length && board[r][c]==0)){
-		board[r][c]=level;
-		solveH(r, c, level+1);
+	    if(!(r<0) && !(r>=board.length) && !(c<0) && !(c>=board[row].length)){
+		if(board[r][c]==0){
+		    board[r][c]=level;
+		    solveH(r, c, level+1);
+		}
 	    }
 	       
 	}
 	return false;
+    }
+
+    public static void main(String[] args){
+	KnightBoard test = new KnightBoard(5,5);
+	System.out.println(test.toString());
+	System.out.println(test.solve(2,2));
+	System.out.println(test.toString());
     }
 }
