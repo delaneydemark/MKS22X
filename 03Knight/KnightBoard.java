@@ -55,10 +55,9 @@ public class KnightBoard{
 	    return true;
 	}
 	for(int i = 0; i<possibleMoves.length; i++){
-	    if(!(row+possibleMoves[i][0]<0) && !(row+possibleMoves[i][0]>=board.length)
-	       && !(col+possibleMoves[i][1]<0) && !(col+possibleMoves[i][1]>=board[row].length)){
-		int r = row+possibleMoves[i][0];
-		int c = col+possibleMoves[i][1];
+	    int r = row+possibleMoves[i][0];
+	    int c = col+possibleMoves[i][1];
+	    if(!(r<0) && !(r>=board.length) && !(c<0) && !(c>=board[row].length && board[r][c]==0)){
 		board[r][c]=level;
 		solveH(r, c, level+1);
 	    }
