@@ -47,13 +47,23 @@ public class KnightBoard{
 		}
 	    }
 	}
-	return solveH(0,0,1);
+	return solveH(startingRow,startingCol,1);
     }
 
     private boolean solveH(int row, int col, int level){
 	if(level == board.length*board[row].length){
 	    return true;
 	}
-	for(int 
+	for(int i = 0; i<possibleMoves.length; i++){
+	    if(!(row+possibleMoves[i][0]<0) && !(row+possibleMoves[i][0]>=board.length)
+	       && !(col+possibleMoves[i][1]<0) && !(col+possibleMoves[i][1]>=board[row].length)){
+		int r = row+possibleMoves[i][0];
+		int c = col+possibleMoves[i][1];
+		board[r][c]=level;
+		solveH(r, c, level+1);
+	    }
+	       
+	}
+	return false;
     }
 }
