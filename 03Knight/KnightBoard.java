@@ -2,6 +2,8 @@ import java
 
 public class KnightBoard{
     int board[][];
+    int possibleMoves[][] = {{2,1},{1,2},{-1,-2},{-2,-1},
+			     {-1,2},{2,-1},{-2,1},{1,-2}}
 
     public KnightBoard(int startingRows, int startingCols){
 	board = new board[startingRows][startingCols];
@@ -45,10 +47,13 @@ public class KnightBoard{
 		}
 	    }
 	}
-	return solveH(0,0,0);
+	return solveH(0,0,1);
     }
 
     private boolean solveH(int row, int col, int level){
-	
+	if(level == board.length*board[row].length){
+	    return true;
+	}
+	for(int 
     }
 }
