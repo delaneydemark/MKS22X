@@ -73,13 +73,14 @@ public class KnightBoard{
 	    }
 	       
 	}
+	board[row][col]=0;
 	return false;
     }
 
     public static void main(String[] args){
-	KnightBoard test = new KnightBoard(6,6);
+	KnightBoard test = new KnightBoard(5,5);
 	System.out.println(test.toString());
-	System.out.println(test.solve(0,0));
+	System.out.println(test.solve(2,2));
 	System.out.println(test.toString());
     }
 }
