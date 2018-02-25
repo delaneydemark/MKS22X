@@ -9,13 +9,6 @@ public class KnightBoard{
 
     public String toString(){
 	String s = "";
-	/*if(!(this.solve())){
-	    for(int i = 0; i<board.length; i++){
-		for(int j = 0; j<board[i].length; j++){
-		    board[i][j]=0;
-		}
-	    }
-	    }*/
 	for(int i = 0; i<board.length; i++){
 	    for(int j = 0; j<board[i].length; j++){
 		if(board.length*board.length < 10){
@@ -111,10 +104,20 @@ public class KnightBoard{
     }
 
     public static void main(String[] args){
-	KnightBoard test = new KnightBoard(5,5);
-	//System.out.println(test.toString());
-	//System.out.println(test.solve(2,2));
-	//System.out.println(test.toString());
+	/*KnightBoard test = new KnightBoard(5,5);
+	System.out.println(test.toString());
+	System.out.println(test.solve(2,2));
+	System.out.println(test.toString());
 	System.out.println(test.countSolutions(2,2));
+	int total = 0;
+	for(int i = 0; i<5; i++){
+	    for(int j = 0; j<5; j++){
+		total+= test.countSolutions(i,j);
+	    }
+	}
+
+	System.out.println(total);
+	System.out.println("should be 1728");
+	*/
     }
 }
