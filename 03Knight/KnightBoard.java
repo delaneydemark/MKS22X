@@ -88,12 +88,31 @@ public class KnightBoard{
 	if(startingRow<0 || startingRow>=board.length || startingCol<0 || startingCol>=board[0].length){
 	    throw new IllegalArgumentException();
 	}
+	return countSolutionsH(startingRow, startingCol, 1);
+    }
+
+    public int countSolutionsH(int row, int col, int level){
+	int count = 0;
+	if(level> board.length*board[0].length){
+	    return 1;
+	}
+	for(int i = 0; i<possibleMoves.length; i++){
+	    if(row>=0 && row<board.length && col>=0 && col<board[0].length){
+		if(board[row][col]==0){
+		    board[row][col]=level;
+		    count+=countSolutionsH(row+possibleMoves[i][0], col+possibleMoves[i][1], level+1);
+		    board[row][col]=0;
+		}
+	    }
+	}
+	return count;
     }
 
     public static void main(String[] args){
 	KnightBoard test = new KnightBoard(7,7);
 	System.out.println(test.toString());
-	System.out.println(test.solve(2,2));
-	System.out.println(test.toString());
+	//System.out.println(test.solve(2,2));
+	//System.out.println(test.toString());
+	System.out.println(test.countSolutions(2,2));
     }
 }
