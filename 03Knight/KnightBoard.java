@@ -85,6 +85,9 @@ public class KnightBoard{
 		}
 	    }
 	}
+	if(startingRow<0 || startingRow>=board.length || startingCol<0 || startingCol>=board[0].length){
+	    throw new IllegalArgumentException();
+	}
     }
 
     public static void main(String[] args){
