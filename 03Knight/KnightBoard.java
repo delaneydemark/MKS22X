@@ -77,8 +77,18 @@ public class KnightBoard{
 	return false;
     }
 
+    public int countSolutions(int startingRow, int startingCol){
+	for(int i = 0; i<board.length; i++){
+	    for(int j = 0; j<board[i].length; j++){
+		if(board[i][j]!=0){
+		    throw new IllegalArgumentException();
+		}
+	    }
+	}
+    }
+
     public static void main(String[] args){
-	KnightBoard test = new KnightBoard(5,5);
+	KnightBoard test = new KnightBoard(7,7);
 	System.out.println(test.toString());
 	System.out.println(test.solve(2,2));
 	System.out.println(test.toString());
