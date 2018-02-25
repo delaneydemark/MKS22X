@@ -2,9 +2,11 @@ public class KnightBoard{
     int board[][];
     int possibleMoves[][] = {{2,1},{1,2},{-1,-2},{-2,-1},
 			     {-1,2},{2,-1},{-2,1},{1,-2}};
+    int countSol;
 
     public KnightBoard(int startingRows, int startingCols){
 	board = new int[startingRows][startingCols];
+	countSol=0;
     }
 
     public String toString(){
@@ -88,24 +90,26 @@ public class KnightBoard{
 	if(startingRow<0 || startingRow>=board.length || startingCol<0 || startingCol>=board[0].length){
 	    throw new IllegalArgumentException();
 	}
-	return countSolutionsH(startingRow, startingCol, 1);
+	countSolutionsH(startingRow, startingCol, 1);
+	return countSol;
     }
 
-    public int countSolutionsH(int row, int col, int level){
-	int count = 0;
+    public boolean countSolutionsH(int row, int col, int level){
 	if(level> board.length*board[0].length){
-	    return 1;
+	    countSol+=1;
 	}
+	if(row<0 || row>=board.length || col<0 || col>=board[0].length){
+	    return false;
+	}
+	if(board[row][col]!=0){
+	    return false;
+	}
+	board[row][col]=level;
 	for(int i = 0; i<possibleMoves.length; i++){
-	    if(row>=0 && row<board.length && col>=0 && col<board[0].length){
-		if(board[row][col]==0){
-		    board[row][col]=level;
-		    count+=countSolutionsH(row+possibleMoves[i][0], col+possibleMoves[i][1], level+1);
-		    board[row][col]=0;
-		}
-	    }
+	    return countSolutionsH(row+possibleMoves[i][0], col+possibleMoves[i][1], level+1);
 	}
-	return count;
+	board[row][col]=0;
+	return true;
     }
 
     public static void main(String[] args){
