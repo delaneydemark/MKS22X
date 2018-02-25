@@ -103,8 +103,8 @@ public class KnightBoard{
 	return count;
     }
 
-    public static void main(String[] args){
-	/*KnightBoard test = new KnightBoard(5,5);
+    /*public static void main(String[] args){
+	KnightBoard test = new KnightBoard(5,5);
 	System.out.println(test.toString());
 	System.out.println(test.solve(2,2));
 	System.out.println(test.toString());
@@ -118,6 +118,6 @@ public class KnightBoard{
 
 	System.out.println(total);
 	System.out.println("should be 1728");
-	*/
-    }
+	
+	}*/
 }
