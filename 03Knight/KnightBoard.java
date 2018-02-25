@@ -9,16 +9,16 @@ public class KnightBoard{
 
     public String toString(){
 	String s = "";
-	if(!solve()){
+	/*if(!(this.solve())){
 	    for(int i = 0; i<board.length; i++){
 		for(int j = 0; j<board[i].length; j++){
 		    board[i][j]=0;
 		}
 	    }
-	}
+	    }*/
 	for(int i = 0; i<board.length; i++){
 	    for(int j = 0; j<board[i].length; j++){
-		if(board.length*board.length <= 10){
+		if(board.length*board.length < 10){
 		    if(board[i][j]==0){
 			s+=" _ ";
 		    }else{
@@ -27,7 +27,7 @@ public class KnightBoard{
 		}else{
 		    if(board[i][j]==0){
 			s+= " _ ";
-		    }else if(board[i][j]<=10){
+		    }else if(board[i][j]<10){
 			s+= "  " + board[i][j];
 		    }
 		    else{
@@ -57,7 +57,7 @@ public class KnightBoard{
     }
 
     private boolean solveH(int row, int col, int level){
-	if(level == board.length*board[row].length){
+	if(level > board.length*board[row].length){
 	    return true;
 	}
 	for(int i = 0; i<possibleMoves.length; i++){
@@ -75,9 +75,9 @@ public class KnightBoard{
     }
 
     public static void main(String[] args){
-	KnightBoard test = new KnightBoard(5,5);
+	KnightBoard test = new KnightBoard(8,8);
 	System.out.println(test.toString());
-	System.out.println(test.solve(2,2));
+	System.out.println(test.solve(3,3));
 	System.out.println(test.toString());
     }
 }
