@@ -1,14 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Maze{
-    private String board[][];
+    private char[][] maze;
 
-    public Maze(){
+    public Maze(String fileName);
 	
 	try{
-	    File text = new File("Maze1.txt");
+	    File text = new File(fileName);
 	    Scanner f = new Scanner(text);
 	    
 	    /*int rows = 0;
@@ -23,7 +25,7 @@ public class Maze{
 	    while(f.hasNext()){
 			String line = f.nextLine();
 			for(int j = 0; j<line.length(); j++){
-				board[count][j]= line.substring(j, j+1);
+			    board[count][j]= line.charAt(j);
 			}
 			count++;
 		}
@@ -46,7 +48,7 @@ public class Maze{
     
     
     public static void main(String[] args){
-    	Maze test = new Maze();
+    	Maze test = new Maze("Maze1.txt");
     	System.out.println(test.toString());
     }
 }
