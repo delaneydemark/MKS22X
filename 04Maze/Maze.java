@@ -6,29 +6,43 @@ import java.io.*;
 
 public class Maze{
     private char[][] maze;
+    private boolean animate;
 
-    public Maze(String fileName);
-	
+    public Maze(String fileName){;
+	boolean = false;
 	try{
 	    File text = new File(fileName);
 	    Scanner f = new Scanner(text);
 	    
-	    /*int rows = 0;
+	    int rows = 0;
 	    int cols = 0;
 	    while(f.hasNextLine()){
-	    	String line = f.nextLine();
-	    	rows++;
-	    }*/
-	    board = new String[9][35];
+		rows++;
+		String line = f.nextLine();
+		cols = line.length();
+	    }
+	    maze = new char[rows][cols];
 
-		int count = 0;
+	    int count = 0;
 	    while(f.hasNext()){
-			String line = f.nextLine();
-			for(int j = 0; j<line.length(); j++){
-			    board[count][j]= line.charAt(j);
-			}
-			count++;
+		String line = f.nextLine();
+		System.out.println(line);
+		for(int j = 0; j<line.length(); j++){
+		    maze[count][j]= line.charAt(j);
 		}
+		count++;
+	    }
+
+	    int start = 0;
+	    int end = 0;
+	    for(int i = 0; i<maze.length; i++){
+		for(int j = 0; j<maze[i].length; j++){
+		    if(start>1 || end>1 || (maze[j][i]!='E' && maze[j][i]!='S'
+					    && maze[j][i]!=' ' && maze[j][i]!='#')){
+			throw new IllegalStateException();
+		    }
+		}
+	    }
 	}catch(FileNotFoundException e){
 	    System.out.println("File not found");
 	    System.exit(1);
@@ -37,14 +51,40 @@ public class Maze{
      
     public String toString(){
     	String s = "";
-    	for(int i = 0; i<board.length; i++){
-    		for(int j = 0; j<board[i].length; j++){
-    			s+= board[i][j];
+    	for(int i = 0; i<maze.length; i++){
+    		for(int j = 0; j<maze[i].length; j++){
+    			s+= maze[i][j];
     		}
     		s+="\n";
     	}
     	return s;
     }
+
+    private void wait(int millis){
+         try {
+             Thread.sleep(millis);
+         }
+         catch (InterruptedException e) {
+         }
+     }
+
+
+    public void setAnimate(boolean b){
+
+        animate = b;
+
+    }
+
+
+    public void clearTerminal(){
+
+        //erase terminal, go to top left of screen.
+
+        System.out.println("\033[2J\033[1;1H");
+
+    }
+
+
     
     
     public static void main(String[] args){
