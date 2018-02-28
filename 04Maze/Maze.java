@@ -23,22 +23,22 @@ public class Maze{
 	    String[] lines = s.split("\n");
 	    maze = new char[lines.length][lines[0].length()];
 	    
+	    int start = 0;
+	    int end = 0;
 	    for(int i = 0; i<maze.length; i++){
 	    	for(int j = 0; j<maze[0].length; j++){
+	    		if(start>1 || end>1){
+	    			throw new IllegalStateException();
+	    		}
+	    		if(lines[i].charAt(j)!='E' && lines[i].charAt(j)!='S'
+	    		&& lines[i].charAt(j)!='#' && lines[i].charAt(j)!=' '
+	    		&& lines[i].charAt(j)!='\n'){
+	    			throw new IllegalStateException();
+	    		}
 	    		maze[i][j] = lines[i].charAt(j);
 	    	}
 	    }
 
-	    int start = 0;
-	    int end = 0;
-	    for(int i = 0; i<maze.length; i++){
-			for(int j = 0; j<maze[i].length; j++){
-		    	if(start>1 || end>1 || (maze[j][i]!='E' && maze[j][i]!='S'
-					    && maze[j][i]!=' ' && maze[j][i]!='#')){
-					throw new IllegalStateException();
-		    	}
-			}
-	    }
     }
      
     public String toString(){
