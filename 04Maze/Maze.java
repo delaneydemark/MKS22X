@@ -19,7 +19,12 @@ public class Maze{
 	    while(f.hasNextLine()){
 	    	s+=f.nextLine();
 	    }
+	    String[] lines = s.split("\n");
 	    System.out.println(s);
+	    System.out.println("\n");
+	    for(int i = 0; i<lines.length; i++){
+	    	System.out.println(lines[i]);
+	    }
 	    /*int rows = 0;
 	    int cols = 0;
 	    while(f.hasNextLine()){
@@ -27,13 +32,11 @@ public class Maze{
 			String line = f.nextLine();
 			cols = line.length();
 	    }
-	    
 	    //String[] lines = f.nextLine().split("\n");
 	    int rows = f.nextLine().length();
 	    //int rows = lines.length;
 	    //int cols = lines[0].length();
 	    maze = new char[rows][35];
-
 	    int count = 0;
 	    while(f.hasNext()){
 			String line = f.nextLine();
@@ -43,7 +46,6 @@ public class Maze{
 			}
 			count++;
 	    }
-
 	    int start = 0;
 	    int end = 0;
 	    for(int i = 0; i<maze.length; i++){
@@ -97,7 +99,7 @@ public class Maze{
     public static void main(String[] args){
     	try{
     			Maze test = new Maze("Maze1.txt");
-    			System.out.println(test.toString());
+    			//System.out.println(test.toString());
     		}catch(FileNotFoundException e){
     			//Maze test = new Maze("Maze1.txt");
     			//System.out.println(test.toString());
