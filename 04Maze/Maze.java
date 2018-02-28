@@ -21,32 +21,14 @@ public class Maze{
 	    	s+="\n";
 	    }
 	    String[] lines = s.split("\n");
-	    System.out.println(s);
-	    System.out.println("\n");
-	    for(int i = 0; i<lines.length; i++){
-	    	System.out.println(lines[i]);
+	    maze = new char[lines.length][lines[0].length()];
+	    
+	    for(int i = 0; i<maze.length; i++){
+	    	for(int j = 0; j<maze[0].length; j++){
+	    		maze[i][j] = lines[i].charAt(j);
+	    	}
 	    }
-	    /*int rows = 0;
-	    int cols = 0;
-	    while(f.hasNextLine()){
-			rows++;
-			String line = f.nextLine();
-			cols = line.length();
-	    }
-	    //String[] lines = f.nextLine().split("\n");
-	    int rows = f.nextLine().length();
-	    //int rows = lines.length;
-	    //int cols = lines[0].length();
-	    maze = new char[rows][35];
-	    int count = 0;
-	    while(f.hasNext()){
-			String line = f.nextLine();
-			System.out.println(line);
-			for(int j = 0; j<line.length(); j++){
-		  		maze[count][j]= line.charAt(j);
-			}
-			count++;
-	    }
+
 	    int start = 0;
 	    int end = 0;
 	    for(int i = 0; i<maze.length; i++){
@@ -56,7 +38,7 @@ public class Maze{
 					throw new IllegalStateException();
 		    	}
 			}
-	    }*/
+	    }
     }
      
     public String toString(){
@@ -100,7 +82,7 @@ public class Maze{
     public static void main(String[] args){
     	try{
     			Maze test = new Maze("Maze1.txt");
-    			//System.out.println(test.toString());
+    			System.out.println(test.toString());
     		}catch(FileNotFoundException e){
     			//Maze test = new Maze("Maze1.txt");
     			//System.out.println(test.toString());
