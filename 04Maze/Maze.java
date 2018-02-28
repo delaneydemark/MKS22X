@@ -84,9 +84,8 @@ public class Maze{
     			Maze test = new Maze("Maze1.txt");
     			System.out.println(test.toString());
     		}catch(FileNotFoundException e){
-    			//Maze test = new Maze("Maze1.txt");
-    			//System.out.println(test.toString());
-    			System.out.println("Constructor throws exception every time");
+    			System.out.println("File not found");
+    			System.exit(1);
     		}
     }
 }
