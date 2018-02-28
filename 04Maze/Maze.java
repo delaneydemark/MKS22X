@@ -8,45 +8,52 @@ public class Maze{
     private char[][] maze;
     private boolean animate;
 
-    public Maze(String fileName){;
-	boolean = false;
-	try{
+    public Maze(String fileName) throws FileNotFoundException{;
+		boolean animate = false;
+	
 	    File text = new File(fileName);
 	    Scanner f = new Scanner(text);
 	    
-	    int rows = 0;
+	    
+	    String s = "";
+	    while(f.hasNextLine()){
+	    	s+=f.nextLine();
+	    }
+	    System.out.println(s);
+	    /*int rows = 0;
 	    int cols = 0;
 	    while(f.hasNextLine()){
-		rows++;
-		String line = f.nextLine();
-		cols = line.length();
+			rows++;
+			String line = f.nextLine();
+			cols = line.length();
 	    }
-	    maze = new char[rows][cols];
+	    
+	    //String[] lines = f.nextLine().split("\n");
+	    int rows = f.nextLine().length();
+	    //int rows = lines.length;
+	    //int cols = lines[0].length();
+	    maze = new char[rows][35];
 
 	    int count = 0;
 	    while(f.hasNext()){
-		String line = f.nextLine();
-		System.out.println(line);
-		for(int j = 0; j<line.length(); j++){
-		    maze[count][j]= line.charAt(j);
-		}
-		count++;
+			String line = f.nextLine();
+			System.out.println(line);
+			for(int j = 0; j<line.length(); j++){
+		  		maze[count][j]= line.charAt(j);
+			}
+			count++;
 	    }
 
 	    int start = 0;
 	    int end = 0;
 	    for(int i = 0; i<maze.length; i++){
-		for(int j = 0; j<maze[i].length; j++){
-		    if(start>1 || end>1 || (maze[j][i]!='E' && maze[j][i]!='S'
+			for(int j = 0; j<maze[i].length; j++){
+		    	if(start>1 || end>1 || (maze[j][i]!='E' && maze[j][i]!='S'
 					    && maze[j][i]!=' ' && maze[j][i]!='#')){
-			throw new IllegalStateException();
-		    }
-		}
-	    }
-	}catch(FileNotFoundException e){
-	    System.out.println("File not found");
-	    System.exit(1);
-	}
+					throw new IllegalStateException();
+		    	}
+			}
+	    }*/
     }
      
     public String toString(){
@@ -88,7 +95,13 @@ public class Maze{
     
     
     public static void main(String[] args){
-    	Maze test = new Maze("Maze1.txt");
-    	System.out.println(test.toString());
+    	try{
+    			Maze test = new Maze("Maze1.txt");
+    			System.out.println(test.toString());
+    		}catch(FileNotFoundException e){
+    			//Maze test = new Maze("Maze1.txt");
+    			//System.out.println(test.toString());
+    			System.out.println("Constructor throws exception every time");
+    		}
     }
 }
