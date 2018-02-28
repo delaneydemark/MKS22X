@@ -18,6 +18,7 @@ public class Maze{
 	    String s = "";
 	    while(f.hasNextLine()){
 	    	s+=f.nextLine();
+	    	s+="\n";
 	    }
 	    String[] lines = s.split("\n");
 	    System.out.println(s);
