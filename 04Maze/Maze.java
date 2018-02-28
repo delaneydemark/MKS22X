@@ -96,15 +96,9 @@ public class Maze{
 		}
 	    }
 	}
-	
-
 	//erase the S
-
-
-	//and start solving at the location of the s.
-
-        //return solve(???,???);
-
+	maze[i][j]=' ';
+	return solve(row,col);
     }
     
     
@@ -112,6 +106,7 @@ public class Maze{
     	try{
     			Maze test = new Maze("Maze1.txt");
     			System.out.println(test.toString());
+			System.out.println(test.solve());
     		}catch(FileNotFoundException e){
     			System.out.println("File not found");
     			System.exit(1);
