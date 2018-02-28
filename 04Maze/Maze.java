@@ -98,9 +98,49 @@ public class Maze{
 	}
 	//erase the S
 	maze[i][j]=' ';
-	return solve(row,col);
+	return solve(row,col,0);
     }
-    
+
+
+        /*
+      Recursive Solve function:
+
+      A solved maze has a path marked with '@' from S to E.
+
+      Returns the number of @ symbols from S to E when the maze is solved,
+      Returns -1 when the maze has no solution.
+
+
+      Postcondition:
+
+        The S is replaced with '@' but the 'E' is not.
+
+        All visited spots that were not part of the solution are changed to '.'
+
+            Note: This is not required based on the algorithm, it is just nice visually to see.
+        All visited spots that are part of the solution are changed to '@'
+    */
+    private int solve(int row, int col, int count){ //you can add more parameters since this is private
+
+
+        //automatic animation! You are welcome.
+        if(animate){
+
+            clearTerminal();
+            System.out.println(this);
+
+            wait(20);
+        }
+
+        //COMPLETE SOLVE
+	if(maze[row][col]='E'){
+	    return count;
+	}
+	
+
+        return -1; //so it compiles
+    }
+
     
     public static void main(String[] args){
     	try{
