@@ -136,9 +136,32 @@ public class Maze{
 	if(maze[row][col]='E'){
 	    return count;
 	}
+	maze[row][col]='@';
+	if(row+1<maze.length){
+	    if(maze[row+1][col]==' ' || maze[row+1][col]=='E'){
+		solve(row+1, col, count+1);
+	    }
+	}
+	else if(col-1>=0){
+	    if(maze[row][col-1]==' ' || maze[row][col-1]=='E'){
+		solve(row, col-1, count+1);
+	    }
+	}
+	else if(col+1<maze[0].length){
+	    if(maze[row][col+1]==' ' || maze[row][col+1]=='E'){
+		solve(row, col+1, count+1);
+	    }
+	}
+	else if(row-1>=0){
+	    if(maze[row+1][col]==' ' || maze[row+1][col]=='E'){
+		solve(row-1, col, count+1);
+	    }
+	}else{
+	    maze[row][col]='.';
+	}
 	
 
-        return -1; //so it compiles
+        return -1;
     }
 
     
