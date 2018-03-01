@@ -46,15 +46,19 @@ public class Recursion{
 		if (n<0){
 			throw new IllegalArgumentException();
 		}
+		if(n<2){
+			return n;
+		}
 		return fibHelper(0, 1, n);
 	}
 	
 	public static int fibHelper(int other, int sum, int n){
 		if (n==0){
-			return sum;
+			return other;
 		}
 		return fibHelper(sum, other + sum, n-1);
 	}
+	
 	
 	public double sqrt(double n){
 		if (n<0){
