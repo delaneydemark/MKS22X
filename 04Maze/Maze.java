@@ -165,7 +165,7 @@ public class Maze{
     }
 
     
-    public static void main(String[] args){
+    /*public static void main(String[] args){
     	try{
     			Maze test = new Maze("data3.txt");
     			System.out.println(test.toString());
@@ -176,5 +176,5 @@ public class Maze{
     			System.out.println("File not found");
     			System.exit(1);
     		}
-    }
+		}*/
 }
