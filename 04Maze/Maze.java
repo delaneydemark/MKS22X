@@ -167,9 +167,9 @@ public class Maze{
     
     public static void main(String[] args){
     	try{
-    			Maze test = new Maze("Maze1.txt");
+    			Maze test = new Maze("data3.txt");
     			System.out.println(test.toString());
-			System.out.println(test.solve());
+			//System.out.println(test.solve());
 			test.setAnimate(true);
 			System.out.println(test.solve());
     		}catch(FileNotFoundException e){
