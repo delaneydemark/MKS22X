@@ -7,6 +7,7 @@ import java.io.*;
 public class Maze{
     private char[][] maze;
     private boolean animate;
+    private int[][] possibleMoves = {{1,0},{-1,0},{0,1},{0,-1}};
 
     public Maze(String fileName) throws FileNotFoundException{;
 	boolean animate = false;
@@ -120,7 +121,7 @@ public class Maze{
             Note: This is not required based on the algorithm, it is just nice visually to see.
         All visited spots that are part of the solution are changed to '@'
     */
-    private int solve(int row, int col, int count, boolean stuck){ //you can add more parameters since this is private
+    private int solve(int row, int col, int count){ //you can add more parameters since this is private
 
 
         //automatic animation! You are welcome.
@@ -139,7 +140,25 @@ public class Maze{
 	if(maze[row][col]==' '){
 	    maze[row][col]='@';
 	}
-	if(row+1<maze.length){
+
+	for(int i = 0, i<possibleMoves.length; i++){
+	    if(row+possibleMoves[i][0]<maze.length && row+possibleMoves[i][0]>=0 &&
+	       col+possibleMoves[i][1]<maze.length && col+possibleMoves[i][1]>=0){
+		if(maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]==' ' ||
+		   maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]=='E'){
+		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count+1, false);
+		}
+	    }
+	}
+
+	maze[row][col]='.';
+
+	for(int i = i<possibleMoves.length; i++){
+	    
+	}
+
+	
+	    /*if(row+1<maze.length){
 	    if(maze[row+1][col]==' ' || maze[row+1][col]=='E'){
 		return solve(row+1, col, count+1, false);
 	    }
@@ -179,7 +198,7 @@ public class Maze{
 	    if(maze[row-1][col]=='@'){
 		return solve(row-1, col+1, count-1, true);
 	    }
-	}
+	    }*/
 	
 
         return -1;
