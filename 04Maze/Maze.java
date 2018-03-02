@@ -143,7 +143,7 @@ public class Maze{
 
 	for(int i = 0, i<possibleMoves.length; i++){
 	    if(row+possibleMoves[i][0]<maze.length && row+possibleMoves[i][0]>=0 &&
-	       col+possibleMoves[i][1]<maze.length && col+possibleMoves[i][1]>=0){
+	       col+possibleMoves[i][1]<maze[0].length && col+possibleMoves[i][1]>=0){
 		if(maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]==' ' ||
 		   maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]=='E'){
 		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count+1, false);
@@ -154,7 +154,12 @@ public class Maze{
 	maze[row][col]='.';
 
 	for(int i = i<possibleMoves.length; i++){
-	    
+	    if(row+possibleMoves[i][0]<maze.length && row+possibleMoves[i][0]>=0 &&
+	       col+possibleMoves[i][1]<maze[0].length && col+possibleMoves[i][1]>=0){
+		if(maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]=='@'){
+		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count-1, true);
+		}
+	    }
 	}
 
 	
