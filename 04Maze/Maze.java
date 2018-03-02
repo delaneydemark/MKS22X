@@ -99,7 +99,7 @@ public class Maze{
 	}
 	//erase the S
 	maze[row][col]=' ';
-	return solve(row,col,0, false);
+	return solve(row,col,0);
     }
 
 
@@ -141,71 +141,26 @@ public class Maze{
 	    maze[row][col]='@';
 	}
 
-	for(int i = 0, i<possibleMoves.length; i++){
+	for(int i = 0; i<possibleMoves.length; i++){
 	    if(row+possibleMoves[i][0]<maze.length && row+possibleMoves[i][0]>=0 &&
 	       col+possibleMoves[i][1]<maze[0].length && col+possibleMoves[i][1]>=0){
 		if(maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]==' ' ||
 		   maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]=='E'){
-		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count+1, false);
+		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count+1);
 		}
 	    }
 	}
 
 	maze[row][col]='.';
 
-	for(int i = i<possibleMoves.length; i++){
+	for(int i = 0; i<possibleMoves.length; i++){
 	    if(row+possibleMoves[i][0]<maze.length && row+possibleMoves[i][0]>=0 &&
 	       col+possibleMoves[i][1]<maze[0].length && col+possibleMoves[i][1]>=0){
 		if(maze[row+possibleMoves[i][0]][col+possibleMoves[i][1]]=='@'){
-		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count-1, true);
+		    return solve(row+possibleMoves[i][0], col+possibleMoves[i][1], count-1);
 		}
 	    }
 	}
-
-	
-	    /*if(row+1<maze.length){
-	    if(maze[row+1][col]==' ' || maze[row+1][col]=='E'){
-		return solve(row+1, col, count+1, false);
-	    }
-	}
-	if(col-1>=0){
-	    if(maze[row][col-1]==' ' || maze[row][col-1]=='E'){
-		return solve(row, col-1, count+1, false);
-	    }
-	}
-	if(col+1<maze[0].length){
-	    if(maze[row][col+1]==' ' || maze[row][col+1]=='E'){
-		return solve(row, col+1, count+1, false);
-	    }
-	}
-       if(row-1>=0){
-	    if(maze[row+1][col]==' ' || maze[row+1][col]=='E'){
-		return solve(row-1, col, count+1, false);
-	    }
-	}
-	
-	if(row+1<maze.length){
-	    if(maze[row+1][col]=='@'){
-		return solve(row+1, col, count-1, true);
-	    }
-	}
-	if(col-1>=0){
-	    if(maze[row][col-1]=='@'){
-		return solve(row, col-1, count-1, true);
-	    }
-	}
-	if(col+1<maze[0].length){
-	    if(maze[row][col+1]=='@'){
-		return solve(row, col+1, count-1, true);
-	    }
-	}
-	if(row-1>=0){
-	    if(maze[row-1][col]=='@'){
-		return solve(row-1, col+1, count-1, true);
-	    }
-	    }*/
-	
-
         return -1;
     }
 
