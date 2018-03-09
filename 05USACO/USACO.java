@@ -12,13 +12,13 @@ public class USACO{
 	    File text = new File(filename);
 	    Scanner f = new Scanner(text);
 
-	    int rows = f.nexInt();
+	    int rows = f.nextnt();
 	    int cols = f.nextInt();
 	    elevation = f.nextInt();
 	    int instructions = f.nextInt();
 	
 
-	    elevations[][] = new int[rows][cols];
+	    elevations     = new int[rows][cols];
 
 	    for(int i = 0; i<elevations.length; i++){
 		for(int j = 0; j<elevations[i].length; j++){
@@ -73,37 +73,60 @@ public class USACO{
 	}
     }
 
-    /*public static int silver(String filename){
-	File text = new File(filename);
-	Scanner f = new Scanner(text);
+    public static int silver(String filename){
+	int time;
+	int startR;
+	int startC;
+	int endR;
+	int endC;
+	char map[][];
+	try{
+	    File text = new File(filename);
+	    Scanner f = new Scanner(text);
 
-	String s ="";
-	String first = f.nextLine();
-	while(f.hasNextLine()){
-	    s+=f.nextLine();
-	    s+="\n";
-	}
+	    int rows = f.nextInt();
+	    int cols = f.nextInt();
+	    time = f.nextInt();
 
-	String lines[] = s.split("\n");
-	char map[][] = new char[lines.length-2][lines[1].length()];
-
-	for(int i = 1; i<map.length-1; i++){
-	    for(int j = 0; j<map[0].length; i++){
-		map[i][j]=lines[i].charAt(j);
+	    String s = "";
+	    while(f.hasNext()){
+		s+=f.nextLine();
+		s+="\n";
 	    }
-	}
+	    System.out.println(s);
 
-	int startR= Integer.parseInt(lines[lines.length-1].substring(0,1));
-	int startC= Integer.parseInt(lines[lines.length-1].substring(2,3));
-	int endR= Integer.parseInt(lines[lines.length-1].substring(4,5));
-	int endC= Integer.parseInt(lines[lines.length-1].substring(6,7));
-	int steps = Integer.parseInt(lines[0].substring(4,5));
-	}*/
+	    String lines[] = s.split("\n");
+	    map     = new char[rows][cols];
+
+	      for(int i =0 ; i<map.length-1; i++){
+		for(int j = 0; j<map[0].length; i++){
+		    map[i][j]=lines[i].charAt(j);
+		}
+	        } 
+     
+	    //	    startR = f.nextInt();
+	    //	    startC = f.nextInt();
+	    //	    endR = f.nextInt();
+	    //	    endC = f.nextInt();
+	    
+
+	    
+
+	    
+
+  
+	}catch(FileNotFoundException e){
+	    System.out.println("File not found");
+	    System.exit(1);
+	}
+	return 0;
+    }
 
 
     public static void main(String[] args){
 	// should be 342144
-	System.out.println(USACO.bronze("makelake.txt");
+	//System.out.println(USACO.bronze("makelake.txt");
+	System.out.println(USACO.silver("ctravel.txt"));
     }
 
 }
