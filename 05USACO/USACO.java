@@ -102,7 +102,7 @@ public class USACO{
 
 
     public static void main(String[] args){
- 
+	// should be 342144
 	System.out.println(USACO.bronze("makelake.txt");
     }
 
