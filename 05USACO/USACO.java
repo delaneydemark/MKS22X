@@ -34,6 +34,7 @@ public class USACO{
 	    System.out.println("File not found");
 	    System.exit(1);
 	}
+	return 0;
 	
     }
 
@@ -41,17 +42,28 @@ public class USACO{
 	int max = 0;
 	for(int i = 0; i<3; i++){
 	    for(int j = 0; j<3; j++){
-		if(upperR+i>=0 && upperR+i<elevations.length &&
-		   upperC+j>=0 && upperC+j<elevations[0].length){
+		if(upperR+i<elevations.length && upperC+j<elevations[0].length){
 		    if(elevations[upperR+i][upperC+j]>max){
 			max = elevations[upperR+i][upperC+j];
 		    }
 		}
 	    }
 	}
+	System.out.println(max);
+
+	for(int i = 0; i<3; i++){
+	    for(int j = 0; j<3; j++){
+		if(upperR+i<elevations.length && upperC+j<elevations[0].length){
+		    if(max-elevations[upperR+i][upperC+j]<=down){
+			elevations[upperR+i][upperC+j] -= down - (max - elevations[upperR+i][upperC+j]);
+			System.out.println(elevations[upperR+i][upperC+j]);
+		    }
+		}
+	    }
+	}
     }
 
-    public static int silver(String filename){
+    /*public static int silver(String filename){
 	File text = new File(filename);
 	Scanner f = new Scanner(text);
 
@@ -76,6 +88,12 @@ public class USACO{
 	int endR= Integer.parseInt(lines[lines.length-1].substring(4,5));
 	int endC= Integer.parseInt(lines[lines.length-1].substring(6,7));
 	int steps = Integer.parseInt(lines[0].substring(4,5));
+	}*/
+
+
+    public static void main(String[] args){
+ 
+	System.out.println(USACO.bronze("makelake.txt");
     }
 
 }
