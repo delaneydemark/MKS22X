@@ -41,7 +41,8 @@ public class USACO{
 	for(int i = 0; i<elevations.length; i++){
 	    for(int j = 0; j<elevations[0].length; j++){
 		if(elevations[i][j]<= elevation){
-		    volume+= elevation-elevations[i][j];
+		    elevations[i][j]= elevation - elevations[i][j];
+		    volume+=elevations[i][j];
 		}
 	    }
 	}
