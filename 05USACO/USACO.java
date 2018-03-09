@@ -5,6 +5,8 @@ import java.io.*;
 public class USACO{
 
     public static int bronze(String filename){
+	int elevations[][];
+	int elevation;
 	try{
 
 	    File text = new File(filename);
@@ -12,11 +14,11 @@ public class USACO{
 
 	    int rows = f.nexInt();
 	    int cols = f.nextInt();
-	    int elevation = f.nextInt();
+	    elevation = f.nextInt();
 	    int instructions = f.nextInt();
 	
 
-	    int elevations[][] = new int[rows][cols];
+	    elevations[][] = new int[rows][cols];
 
 	    for(int i = 0; i<elevations.length; i++){
 		for(int j = 0; j<elevations[i].length; j++){
@@ -34,6 +36,15 @@ public class USACO{
 	    System.out.println("File not found");
 	    System.exit(1);
 	}
+
+	int volume = 0;
+	for(int i = 0; i<elevations.length; i++){
+	    for(int j = 0; j<elevations[0].length; j++){
+		if(elevations[i][j]<= elevation){
+		    volume+= elevation-elevations[i][j];
+		}
+	    }
+	}
 	return 0;
 	
     }
@@ -49,14 +60,12 @@ public class USACO{
 		}
 	    }
 	}
-	System.out.println(max);
 
 	for(int i = 0; i<3; i++){
 	    for(int j = 0; j<3; j++){
 		if(upperR+i<elevations.length && upperC+j<elevations[0].length){
 		    if(max-elevations[upperR+i][upperC+j]<=down){
 			elevations[upperR+i][upperC+j] -= down - (max - elevations[upperR+i][upperC+j]);
-			System.out.println(elevations[upperR+i][upperC+j]);
 		    }
 		}
 	    }
