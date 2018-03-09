@@ -46,7 +46,7 @@ public class USACO{
 		}
 	    }
 	}
-	return 0;
+	return volume * 72 * 72;
 	
     }
 
