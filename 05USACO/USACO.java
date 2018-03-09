@@ -16,13 +16,19 @@ public class USACO{
 	    int instructions = f.nextInt();
 	
 
-	    String lines[] = s.split("\n");
 	    int elevations[][] = new int[rows][cols];
 
 	    for(int i = 0; i<elevations.length; i++){
 		for(int j = 0; j<elevations[i].length; j++){
 		    map[i][j]=f.nextInt();
 		}
+	    }
+
+	    for(int i = 0; i<instructions; i++){
+		int upperR = f.nextInt();
+		int upperC = f.nextInt();
+		int down = f.nextInt();
+		bronzeH(upperR, upperC, down);
 	    }
 	}catch(FileNotFoundException e){
 	    System.out.println("File not found");
