@@ -37,6 +37,20 @@ public class USACO{
 	
     }
 
+    public static void bronzeH(int upperR, int upperC, int down){
+	int max = 0;
+	for(int i = 0; i<3; i++){
+	    for(int j = 0; j<3; j++){
+		if(upperR+i>=0 && upperR+i<elevations.length &&
+		   upperC+j>=0 && upperC+j<elevations[0].length){
+		    if(elevations[upperR+i][upperC+j]>max){
+			max = elevations[upperR+i][upperC+j];
+		    }
+		}
+	    }
+	}
+    }
+
     public static int silver(String filename){
 	File text = new File(filename);
 	Scanner f = new Scanner(text);
