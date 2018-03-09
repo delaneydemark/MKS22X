@@ -5,17 +5,32 @@ import java.io.*;
 public class USACO{
 
     public static int bronze(String filename){
-	File text = new File(filename);
-	Scanner f = new Scanner(text);
+	try{
 
-	String s ="";
-	while(f.hasNextLine()){
-	    s+=f.nextLine();
-	    s+="\n";
+	    File text = new File(filename);
+	    Scanner f = new Scanner(text);
+
+	    String s ="";
+	    String instructions= f.nextLine();
+	    while(f.hasNextLine()){
+		s+=f.nextLine();
+		s+="\n";
+	    }
+
+	    String lines[] = s.split("\n");
+	    int elevations[][] = new int[lines.length-2][lines[0].length()];
+
+	    for(int i = 0; i<elevations.length; i++){
+		String row[] = lines[i].split(" ");
+		for(int j = 0; j<elevations[i].length; j++){
+		    map[i][j]=Integer.parseInt(row[j]);
+		}
+	    }
+	}catch(FileNotFoundException e){
+	    System.out.println("File not found");
+	    System.exit(1);
 	}
-
-	String lines[] = s.split("\n");
-	int elevations[][] = new int[lines.length-3][lines[1].length()];
+	
     }
 
     public static int silver(String filename){
@@ -23,6 +38,7 @@ public class USACO{
 	Scanner f = new Scanner(text);
 
 	String s ="";
+	String first = f.nextLine();
 	while(f.hasNextLine()){
 	    s+=f.nextLine();
 	    s+="\n";
