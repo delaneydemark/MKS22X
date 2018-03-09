@@ -10,20 +10,18 @@ public class USACO{
 	    File text = new File(filename);
 	    Scanner f = new Scanner(text);
 
-	    String s ="";
-	    String instructions= f.nextLine();
-	    while(f.hasNextLine()){
-		s+=f.nextLine();
-		s+="\n";
-	    }
+	    int rows = f.nexInt();
+	    int cols = f.nextInt();
+	    int elevation = f.nextInt();
+	    int instructions = f.nextInt();
+	
 
 	    String lines[] = s.split("\n");
-	    int elevations[][] = new int[lines.length-2][lines[0].length()];
+	    int elevations[][] = new int[rows][cols];
 
 	    for(int i = 0; i<elevations.length; i++){
-		String row[] = lines[i].split(" ");
 		for(int j = 0; j<elevations[i].length; j++){
-		    map[i][j]=Integer.parseInt(row[j]);
+		    map[i][j]=f.nextInt();
 		}
 	    }
 	}catch(FileNotFoundException e){
