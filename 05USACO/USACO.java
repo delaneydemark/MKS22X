@@ -171,11 +171,15 @@ public class USACO{
     }
 
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 	// should be 342144
-	//System.out.println(USACO.bronze("makelake.txt"));
+	System.out.println(USACO.bronze("makelake.txt"));
 	// should be 1
 	System.out.println(USACO.silver("ctravel.txt"));
-    }
+	// should be 74
+	System.out.println(USACO.silver("ctravel2.txt"));
+	// should be 6435
+	System.out.println(USACO.silver("ctravel3.txt"));
+	}*/
 
 }
