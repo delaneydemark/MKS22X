@@ -155,13 +155,16 @@ public class USACO{
 		}
 	    }
 	    
-
 	    
-
   
 	}catch(FileNotFoundException e){
 	    System.out.println("File not found");
 	    System.exit(1);
+	}
+	if(time%2==0){
+	    total = last[endR][endC];
+	}else{
+	    total = current[endR][endC];
 	}
 	return total;
     }
