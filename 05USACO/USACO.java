@@ -77,11 +77,11 @@ public class USACO{
     }
 
     public static int silver(String filename){
-	int time;
-	int startR;
-	int startC;
-	int endR;
-	int endC;
+	int time = 0;
+	int startR = 0;
+	int startC = 0;
+	int endR = 0;
+	int endC = 0;
 	char map[][];
 	int[][] last;
 	int[][] current;
@@ -120,7 +120,7 @@ public class USACO{
 	    endC = f.nextInt();
 	    
 	    int[][] moves = {{0,1},{0,-1},{1,0},{-1,0}};
-	    last[startR][startC] = 1;
+	    last[startR-1][startC-1] = 1;
 	    for(int i = 0; i<time; i++){
 		for(int r = 0; r<rows; r++){
 		    for(int c = 0; c<cols; c++){
@@ -137,35 +137,36 @@ public class USACO{
 				}
 				current[r][c]=possibleMoves;
 			    }
-			}else(map[r][c]!='*'){
-				if(current[r][c]>0){
-				    last[r][c]=0;
-				}else{
-				    int possibleMoves = 0;
-				    for(int m = 0; m<moves.length; m++){
-					if(r+moves[m][0]>=0 && r+moves[m][0]<rows
-					   && c+moves[m][1]>=0 && c+moves[m][1]<cols){
-					    possibleMoves+=current[r+moves[m][0]][c+moves[m][1]];
-					}
+			}else if (map[r][c]!='*'){
+			    if(current[r][c]>0){
+				last[r][c]=0;
+			    }else{
+				int possibleMoves = 0;
+				for(int m = 0; m<moves.length; m++){
+				    if(r+moves[m][0]>=0 && r+moves[m][0]<rows
+				       && c+moves[m][1]>=0 && c+moves[m][1]<cols){
+					possibleMoves+=current[r+moves[m][0]][c+moves[m][1]];
 				    }
-				    last[r][c]=possibleMoves;
 				}
+				last[r][c]=possibleMoves;
+			    }
 			}
 		    }
 		}
 	    }
-	    
+
+	    if(time%2==0){
+		total = last[endR-1][endC-1];
+	    }else{
+		total = current[endR-1][endC-1];
+	    }
 	    
   
 	}catch(FileNotFoundException e){
 	    System.out.println("File not found");
 	    System.exit(1);
 	}
-	if(time%2==0){
-	    total = last[endR][endC];
-	}else{
-	    total = current[endR][endC];
-	}
+       
 	return total;
     }
 
@@ -173,6 +174,7 @@ public class USACO{
     public static void main(String[] args){
 	// should be 342144
 	//System.out.println(USACO.bronze("makelake.txt"));
+	// should be 1
 	System.out.println(USACO.silver("ctravel.txt"));
     }
 
