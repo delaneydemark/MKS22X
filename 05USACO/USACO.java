@@ -76,13 +76,15 @@ public class USACO{
 	}
     }
 
-    /*public static int silver(String filename){
+    public static int silver(String filename){
 	int time;
 	int startR;
 	int startC;
 	int endR;
 	int endC;
 	char map[][];
+	int[][] last;
+	int[][] current;
 	try{
 	    File text = new File(filename);
 	    Scanner f = new Scanner(text);
@@ -91,28 +93,37 @@ public class USACO{
 	    int cols = f.nextInt();
 	    time = f.nextInt();
 
+	   
+	    map = new char[rows][cols];
+	    last = new int[rows][cols];
+	    current = new int[rows][cols];
+	    
 	    String s = "";
-	    while(f.hasNext()){
-		s+=f.nextLine();
+	    while(f.hasNext() && !(f.hasNextInt())){
+		s+=f.next();
 		s+="\n";
 	    }
-	    System.out.println(s);
 
-	    String lines[] = s.split("\n");
-	    map     = new char[rows][cols];
-
-	      for(int i =0 ; i<map.length-1; i++){
-		for(int j = 0; j<map[0].length; i++){
+	    String[] lines = s.split("\n");
+	    
+	    for(int i =0 ; i<lines.length; i++){
+		for(int j = 0; j<lines[0].length(); j++){
 		    map[i][j]=lines[i].charAt(j);
 		}
-	        } 
+	    }
      
-	    //	    startR = f.nextInt();
-	    //	    startC = f.nextInt();
-	    //	    endR = f.nextInt();
-	    //	    endC = f.nextInt();
-	    
+	    startR = f.nextInt();
+	    startC = f.nextInt();
 
+	    endR = f.nextInt();
+	    endC = f.nextInt();
+	    
+	    for(int i = 0; i<time; i++){
+		for(int r = 0; r<rows; r++){
+		    for(int c = 0; c<cols; c++){
+		    }
+		}
+	    }
 	    
 
 	    
@@ -123,13 +134,13 @@ public class USACO{
 	    System.exit(1);
 	}
 	return 0;
-	}*/
+    }
 
 
     public static void main(String[] args){
 	// should be 342144
-	System.out.println(USACO.bronze("makelake.txt"));
-	//System.out.println(USACO.silver("ctravel.txt"));
+	//System.out.println(USACO.bronze("makelake.txt"));
+	System.out.println(USACO.silver("ctravel.txt"));
     }
 
 }
