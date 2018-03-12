@@ -85,6 +85,7 @@ public class USACO{
 	char map[][];
 	int[][] last;
 	int[][] current;
+	int total = 0;
 	try{
 	    File text = new File(filename);
 	    Scanner f = new Scanner(text);
@@ -118,9 +119,16 @@ public class USACO{
 	    endR = f.nextInt();
 	    endC = f.nextInt();
 	    
+	    int[][] moves = {{0,1},{0,-1},{1,0},{-1,0}};
+	    last[startR][startC] = 1;
 	    for(int i = 0; i<time; i++){
 		for(int r = 0; r<rows; r++){
 		    for(int c = 0; c<cols; c++){
+			if(i%2==0 && map[r][c]!='*'){
+			    
+			}else{
+			    
+			}
 		    }
 		}
 	    }
@@ -133,7 +141,7 @@ public class USACO{
 	    System.out.println("File not found");
 	    System.exit(1);
 	}
-	return 0;
+	return total;
     }
 
 
