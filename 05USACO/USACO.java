@@ -5,24 +5,25 @@ import java.io.*;
 public class USACO{
 
     public static int bronze(String filename){
-	int elevations[][];
+	int[][] elevations;
 	int elevation;
+	int volume = 0;
 	try{
 
 	    File text = new File(filename);
 	    Scanner f = new Scanner(text);
 
-	    int rows = f.nextnt();
+	    int rows = f.nextInt();
 	    int cols = f.nextInt();
 	    elevation = f.nextInt();
 	    int instructions = f.nextInt();
 	
 
-	    elevations     = new int[rows][cols];
+	    elevations = new int[rows][cols];
 
 	    for(int i = 0; i<elevations.length; i++){
 		for(int j = 0; j<elevations[i].length; j++){
-		    map[i][j]=f.nextInt();
+		    elevations[i][j]=f.nextInt();
 		}
 	    }
 
@@ -30,27 +31,29 @@ public class USACO{
 		int upperR = f.nextInt();
 		int upperC = f.nextInt();
 		int down = f.nextInt();
-		bronzeH(upperR, upperC, down);
+		bronzeH(upperR-1, upperC-1, down, elevations);
+	    }
+
+	    for(int i = 0; i<elevations.length; i++){
+		for(int j = 0; j<elevations[0].length; j++){
+		    if(elevations[i][j]<= elevation){
+			elevations[i][j]= elevation - elevations[i][j];
+			volume+=elevations[i][j];
+		    }
+		}
 	    }
 	}catch(FileNotFoundException e){
 	    System.out.println("File not found");
 	    System.exit(1);
 	}
 
-	int volume = 0;
-	for(int i = 0; i<elevations.length; i++){
-	    for(int j = 0; j<elevations[0].length; j++){
-		if(elevations[i][j]<= elevation){
-		    elevations[i][j]= elevation - elevations[i][j];
-		    volume+=elevations[i][j];
-		}
-	    }
-	}
+	
+	
 	return volume * 72 * 72;
 	
     }
 
-    public static void bronzeH(int upperR, int upperC, int down){
+    public static void bronzeH(int upperR, int upperC, int down, int[][] elevations){
 	int max = 0;
 	for(int i = 0; i<3; i++){
 	    for(int j = 0; j<3; j++){
@@ -73,7 +76,7 @@ public class USACO{
 	}
     }
 
-    public static int silver(String filename){
+    /*public static int silver(String filename){
 	int time;
 	int startR;
 	int startC;
@@ -120,13 +123,13 @@ public class USACO{
 	    System.exit(1);
 	}
 	return 0;
-    }
+	}*/
 
 
     public static void main(String[] args){
 	// should be 342144
-	//System.out.println(USACO.bronze("makelake.txt");
-	System.out.println(USACO.silver("ctravel.txt"));
+	System.out.println(USACO.bronze("makelake.txt"));
+	//System.out.println(USACO.silver("ctravel.txt"));
     }
 
 }
