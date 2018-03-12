@@ -125,7 +125,18 @@ public class USACO{
 		for(int r = 0; r<rows; r++){
 		    for(int c = 0; c<cols; c++){
 			if(i%2==0 && map[r][c]!='*'){
-			    
+			    if(last[r][c]>0){
+				current[r][c]=0;
+			    }else{
+				int possibleMoves = 0;
+				for(int m = 0; m<moves.length; m++){
+				    if(r+moves[m][0]>=0 && r+moves[m][0]<rows
+				       && c+moves[m][1]>=0 && c+moves[m][1]<cols){
+					possibleMoves+=last[r+moves[m][0]][c+moves[m][1]];
+				    }
+				}
+				current[r][c]=possibleMoves;
+			    }
 			}else{
 			    
 			}
