@@ -137,8 +137,10 @@ public class USACO{
 				}
 				current[r][c]=possibleMoves;
 			    }
-			}else{
-			    
+			}else(map[r][c]!='*'){
+				if(current[r][c]>0){
+				    last[r][c]=0;
+				}
 			}
 		    }
 		}
