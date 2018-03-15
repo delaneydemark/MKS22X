@@ -62,8 +62,14 @@ public class Quick{
 			s+=" " + arr[i];
 		}
 		System.out.println(s);*/
-		int k = Quick.quickselect(arr, 2);
+		/*int k = Quick.quickselect(arr, 2);
 		System.out.println(k);
+		String s = "";
+		for(int i = 0; i<arr.length; i++){
+			s+=" " + arr[i];
+		}
+		System.out.println(s);*/
+		Quick.quicksort(arr);;
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
