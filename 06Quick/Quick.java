@@ -43,6 +43,14 @@ public class Quick{
 	}
 	return data[k];
     }
+
+    public static void quicksort(int[] data){
+	quickH(data, 0, data.length -1);
+    }
+
+    public static void quickH(int[] data, int start, int end){
+	
+    }
     public static void main(String[] args){
 		int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
 		/*int index = Quick.partition(arr, 0, 7);
