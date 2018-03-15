@@ -49,7 +49,9 @@ public class Quick{
     }
 
     public static void quickH(int[] data, int start, int end){
-	
+	int index = partition(data, start, end);
+	quickH(data, start, index);
+	quickH(data, index+1, end);
     }
     public static void main(String[] args){
 		int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
