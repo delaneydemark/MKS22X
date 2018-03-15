@@ -4,7 +4,7 @@ public class Quick{
     
     public static int partition(int[] data, int start, int end){
 	Random rand = new Random();
-	int pivot = rand.nextInt(end - start) + start;
+	int pivot = rand.nextInt(end-start + 1) + start;
 
 	int pVal = data[pivot];
 	data[pivot] = data[start];
@@ -28,11 +28,10 @@ public class Quick{
     }
 
     public static int quickselect(int[] data, int k){
-	int index = 0;
 	int start = 0;
 	int end = data.length-1;
+	int index = partition(data, start, end);
 	for(int i = 0; i<data.length; i++){
-	    index = partition(data, start, end);
 	    if(index==k){
 		return data[k];
 	    }else if(k<=index){
@@ -40,6 +39,7 @@ public class Quick{
 	    }else if(k>index){
 		start = index+1;
 	    }
+	    index = partition(data, start, end);
 	}
 	return data[k];
     }
@@ -52,7 +52,7 @@ public class Quick{
 			s+=" " + arr[i];
 		}
 		System.out.println(s);*/
-		int k = Quick.quickselect(arr, 3);
+		int k = Quick.quickselect(arr, 2);
 		System.out.println(k);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
