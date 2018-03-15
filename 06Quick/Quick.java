@@ -27,6 +27,40 @@ public class Quick{
 	return large;
     }
 
+    public static int partitiondutch(int[] data, int start, int end){
+	Random rand = new Random();
+	int pivot = rand.nextInt(end-start + 1) + start;
+
+	int pVal = data[pivot];
+	data[pivot] = data[start];
+	data[start] = pVal;
+	int lt = start;
+	int gt = end;
+	int i = lt;
+	
+	while(i<=gt){
+	    if(data[i]==pVal){
+		i++;
+	    }else if(data[i]>pVal){
+		int swap = data[i];
+		data[i] = data[gt];
+		data[gt] = swap;
+		gt++;
+	    }
+	    else{
+		int s = data[i];
+		data[i] = data[lt];
+		data[lt] = s;
+	    }
+	}
+	int sw = data[large];
+	data[large] = pVal;
+	data[start] = sw;
+	return large;
+    }
+
+    
+
     public static int quickselect(int[] data, int k){
 	int start = 0;
 	int end = data.length-1;
@@ -44,12 +78,13 @@ public class Quick{
 	return data[k];
     }
 
+
     public static void quicksort(int[] data){
 	quickH(data, 0, data.length -1);
     }
 
     public static void quickH(int[] data, int start, int end){
-	if((end-start)+1>1){
+	if(end == start){
 	    int index = partition(data, start, end);
 	    quickH(data, start, index);
 	    quickH(data, index+1, end);
