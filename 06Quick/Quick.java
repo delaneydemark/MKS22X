@@ -113,21 +113,21 @@ public class Quick{
     }
     public static void main(String[] args){
 		int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
-		int[] index = Quick.partitiondutch(arr, 0, 7);
+		/*int[] index = Quick.partitiondutch(arr, 0, 7);
 		System.out.println(index[0]);
 		System.out.println(index[1]);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);
-		/*int k = Quick.quickselect(arr, 2);
+		System.out.println(s);*/
+		int k = Quick.quickselectdutch(arr, 7);
 		System.out.println(k);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);*/
+		System.out.println(s);
 		/*Quick.quicksort(arr);;
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
