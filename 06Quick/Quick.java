@@ -27,7 +27,7 @@ public class Quick{
 	return large;
     }
 
-    public static int partitiondutch(int[] data, int start, int end){
+    public static int[] partitiondutch(int[] data, int start, int end){
 	Random rand = new Random();
 	int pivot = rand.nextInt(end-start + 1) + start;
 
@@ -51,12 +51,14 @@ public class Quick{
 		int s = data[i];
 		data[i] = data[lt];
 		data[lt] = s;
+		i++;
+		lt++;
 	    }
 	}
-	int sw = data[large];
-	data[large] = pVal;
-	data[start] = sw;
-	return large;
+	int indices[] = new int[2];
+	indices[0] = lt;
+	indices[1] = gt;
+	return indices;
     }
 
     
@@ -78,16 +80,34 @@ public class Quick{
 	return data[k];
     }
 
+    public static int quickselectdutch(int[] data, int k){
+	int start = 0;
+	int end = data.length-1;
+	int[] indices = partitiondutch(data, start, end);
+	for(int i = 0; i<data.length; i++){
+	    if(indices[==k){
+		return data[k];
+	    }else if(k<=index){
+		end = index-1;
+	    }else if(k>index){
+		start = index+1;
+	    }
+	    index = partition(data, start, end);
+	}
+	return data[k];
+    }
 
+
+    
     public static void quicksort(int[] data){
 	quickH(data, 0, data.length -1);
     }
 
     public static void quickH(int[] data, int start, int end){
 	if(end == start){
-	    int index = partition(data, start, end);
-	    quickH(data, start, index);
-	    quickH(data, index+1, end);
+	    int indices[] = partition(data, start, end);
+	    quickH(data, start, indices[0]);
+	    quickH(data, indices[1], end);
 	}
     }
     public static void main(String[] args){
