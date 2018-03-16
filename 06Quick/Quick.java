@@ -45,7 +45,7 @@ public class Quick{
 		int swap = data[i];
 		data[i] = data[gt];
 		data[gt] = swap;
-		gt++;
+		gt--;
 	    }
 	    else{
 		int s = data[i];
@@ -85,7 +85,7 @@ public class Quick{
 	int end = data.length-1;
 	int[] indices = partitiondutch(data, start, end);
 	for(int i = 0; i<data.length; i++){
-	    //??
+	    
 	    if(indices[0]<=k && indices[1]>=k){
 		return data[k];
 	    }else if(k<=indices[0]){
@@ -93,7 +93,7 @@ public class Quick{
 	    }else if(k>indices[1]){
 		start = indices[1]+1;
 	    }
-	    indices = partition(data, start, end);
+	    indices = partitiondutch(data, start, end);
 	}
 	return data[k];
     }
@@ -106,20 +106,21 @@ public class Quick{
 
     public static void quickH(int[] data, int start, int end){
 	if(end == start){
-	    int indices[] = partition(data, start, end);
+	    int indices[] = partitiondutch(data, start, end);
 	    quickH(data, start, indices[0]);
 	    quickH(data, indices[1], end);
 	}
     }
     public static void main(String[] args){
 		int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
-		/*int index = Quick.partition(arr, 0, 7);
-		System.out.println(index);
+		int[] index = Quick.partitiondutch(arr, 0, 7);
+		System.out.println(index[0]);
+		System.out.println(index[1]);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);*/
+		System.out.println(s);
 		/*int k = Quick.quickselect(arr, 2);
 		System.out.println(k);
 		String s = "";
@@ -127,12 +128,12 @@ public class Quick{
 			s+=" " + arr[i];
 		}
 		System.out.println(s);*/
-		Quick.quicksort(arr);;
+		/*Quick.quicksort(arr);;
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);
+		System.out.println(s);*/
 		
 
 		
