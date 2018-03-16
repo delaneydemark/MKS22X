@@ -85,14 +85,15 @@ public class Quick{
 	int end = data.length-1;
 	int[] indices = partitiondutch(data, start, end);
 	for(int i = 0; i<data.length; i++){
-	    if(indices[==k){
+	    //??
+	    if(indices[0]<=k && indices[1]>=k){
 		return data[k];
-	    }else if(k<=index){
-		end = index-1;
-	    }else if(k>index){
-		start = index+1;
+	    }else if(k<=indices[0]){
+		end = indices[0]-1;
+	    }else if(k>indices[1]){
+		start = indices[1]+1;
 	    }
-	    index = partition(data, start, end);
+	    indices = partition(data, start, end);
 	}
 	return data[k];
     }
