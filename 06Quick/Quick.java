@@ -105,7 +105,7 @@ public class Quick{
     }
 
     public static void quickH(int[] data, int start, int end){
-	if(end != start){
+	if(end-start> 0){
 	    int indices[] = partitiondutch(data, start, end);
 	    quickH(data, start, indices[0]);
 	    quickH(data, indices[1]+1, end);
@@ -121,19 +121,19 @@ public class Quick{
 			s+=" " + arr[i];
 		}
 		System.out.println(s);*/
-		int k = Quick.quickselectdutch(arr, 5);
+		/*int k = Quick.quickselectdutch(arr, 5);
 		System.out.println(k);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);
-		/*Quick.quicksort(arr);
+		System.out.println(s);*/
+		Quick.quicksort(arr);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);*/
+		System.out.println(s);
 		
 
 		
