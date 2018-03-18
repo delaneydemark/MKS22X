@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Quick{
     
-    public static int partition(int[] data, int start, int end){
+    public static int firstpartition(int[] data, int start, int end){
 	Random rand = new Random();
 	int pivot = rand.nextInt(end-start + 1) + start;
 
@@ -27,7 +27,7 @@ public class Quick{
 	return large;
     }
 
-    public static int[] partitiondutch(int[] data, int start, int end){
+    public static int[] partition(int[] data, int start, int end){
 	Random rand = new Random();
 	int pivot = rand.nextInt(end-start + 1) + start;
 
@@ -63,10 +63,10 @@ public class Quick{
 
     
 
-    public static int quickselect(int[] data, int k){
+    public static int firstquickselect(int[] data, int k){
 	int start = 0;
 	int end = data.length-1;
-	int index = partition(data, start, end);
+	int index = firstpartition(data, start, end);
 	for(int i = 0; i<data.length; i++){
 	    if(index==k){
 		return data[k];
@@ -75,15 +75,15 @@ public class Quick{
 	    }else if(k>index){
 		start = index+1;
 	    }
-	    index = partition(data, start, end);
+	    index = firstpartition(data, start, end);
 	}
 	return data[k];
     }
 
-    public static int quickselectdutch(int[] data, int k){
+    public static int quickselect(int[] data, int k){
 	int start = 0;
 	int end = data.length-1;
-	int[] indices = partitiondutch(data, start, end);
+	int[] indices = partition(data, start, end);
 	for(int i = 0; i<data.length; i++){
 	    
 	    if(indices[0]<=k && indices[1]>=k){
@@ -93,7 +93,7 @@ public class Quick{
 	    }else if(k>indices[1]){
 		start = indices[1]+1;
 	    }
-	    indices = partitiondutch(data, start, end);
+	    indices = partition(data, start, end);
 	}
 	return data[k];
     }
@@ -106,28 +106,28 @@ public class Quick{
 
     public static void quickH(int[] data, int start, int end){
 	if(end-start> 0){
-	    int indices[] = partitiondutch(data, start, end);
+	    int indices[] = partition(data, start, end);
 	    quickH(data, start, indices[0]);
 	    quickH(data, indices[1]+1, end);
 	}
     }
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 		int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
-		/*int[] index = Quick.partitiondutch(arr, 0, arr.length-1);
+		int[] index = Quick.partition(arr, 0, arr.length-1);
 		System.out.println(index[0]);
 		System.out.println(index[1]);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);*/
-		/*int k = Quick.quickselectdutch(arr, 5);
+		System.out.println(s);
+		int k = Quick.quickselect(arr, 3);
 		System.out.println(k);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
 			s+=" " + arr[i];
 		}
-		System.out.println(s);*/
+		System.out.println(s);
 		Quick.quicksort(arr);
 		String s = "";
 		for(int i = 0; i<arr.length; i++){
@@ -137,5 +137,5 @@ public class Quick{
 		
 
 		
-    }
+		}*/
 }
