@@ -26,24 +26,26 @@ public class Merge{
     }
 
     private static void msort(int[] data, int[] temp, int lo, int hi){
-	if(lo<=hi){
-	    for(int i = lo; i<=hi; i++){
-		temp[i]=data[i];
-	    }
-	    int mid = (lo+hi)/2;
-	    msort(temp, data, lo, mid);
-	    msort(temp, data, mid + 1, hi);
-	    merge(data, temp, lo, mid, hi);
+	if(lo>=hi){
+	    return ;
 	}
+	for(int i = lo; i<=hi; i++){
+	    temp[i]=data[i];
+	}
+	int mid = (lo+hi)/2;
+	msort(temp, data, lo, mid);
+	msort(temp, data, mid + 1, hi);
+	merge(data, temp, lo, mid, hi);
+	
     }
     
 
     public static void main(String[] args){
 	int[] data = {2,6,8,10,1,3,9,200};
-	int[] mergedData = merge(data, 0, 3, 4, 7);
+	Merge.mergesort(data);
 	String s = "";
-	for(int i = 0; i<mergedData.length; i++){
-	    s+= mergedData[i] + " ";
+	for(int i = 0; i<data.length; i++){
+	    s+= data[i] + " ";
 	}
 	System.out.println(s);
     }
