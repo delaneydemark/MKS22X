@@ -40,7 +40,7 @@ public class Merge{
     }
     
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 	int[] data = {2,6,8,10,1,3,9,200};
 	Merge.mergesort(data);
 	String s = "";
@@ -48,6 +48,6 @@ public class Merge{
 	    s+= data[i] + " ";
 	}
 	System.out.println(s);
-    }
+	}*/
 }
 
