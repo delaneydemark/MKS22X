@@ -1,16 +1,14 @@
 public class Merge{
 
-    public static int[] merge(int[] data, int firstS, int firstE, int secondS, int secondE){
-	int len = (firstE - firstS + 1) + (secondE - secondS + 1);
-	int[] merged = new int[len];
-	int firstI = firstS;
-	int secondI = secondS;
-	for(int i = 0; i<len; i++){
-	    if(firstI>firstE){
-		merged[i] = data[secondI];
+    public static void merge(int[] data, int[] temp, int lo, int mid, int hi){
+	int firstI = lo;
+	int secondI = mid+1;
+	for(int i = lo; i<=hi; i++){
+	    if(firstI>mid){
+		data[i]=temp[secondI];
 		secondI+=1;
-	    }else if(secondI>secondE){
-		merged[i] = data[firstI];
+	    }else if(secondI>hi){
+		data[i] = data[firstI];
 		firstI+=1;
 	    }else if(data[firstI]<data[secondI]){
 		merged[i] = data[firstI];
