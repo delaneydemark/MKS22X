@@ -10,15 +10,14 @@ public class Merge{
 	    }else if(secondI>hi){
 		data[i] = data[firstI];
 		firstI+=1;
-	    }else if(data[firstI]<data[secondI]){
-		merged[i] = data[firstI];
+	    }else if(temp[firstI]<temp[secondI]){
+		data[i] = temp[firstI];
 		firstI+=1;
-	    }else if(data[secondI]<=data[firstI]){
-		merged[i] = data[secondI];
+	    }else if(temp[secondI]<=temp[firstI]){
+		data[i] = temp[secondI];
 		secondI+=1;
 	    }
-	}
-	return merged; 
+	} 
     }
 
     public static void mergesort(int[] data){
