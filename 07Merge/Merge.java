@@ -30,6 +30,9 @@ public class Merge{
 
     private static void msort(int[] data, int[] temp, int lo, int hi){
 	if(lo<=hi){
+	    for(int i = lo; i<=hi; i++){
+		temp[i]=data[i];
+	    }
 	    int mid = (lo+hi)/2;
 	    msort(temp, data, lo, mid);
 	    msort(temp, data, mid + 1, hi);
