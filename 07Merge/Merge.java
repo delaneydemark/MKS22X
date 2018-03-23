@@ -8,7 +8,7 @@ public class Merge{
 		data[i]=temp[secondI];
 		secondI+=1;
 	    }else if(secondI>hi){
-		data[i] = data[firstI];
+		data[i] = temp[firstI];
 		firstI+=1;
 	    }else if(temp[firstI]<temp[secondI]){
 		data[i] = temp[firstI];
@@ -40,14 +40,14 @@ public class Merge{
     }
     
 
-    /*public static void main(String[] args){
-	int[] data = {2,6,8,10,1,3,9,200};
+    public static void main(String[] args){
+	int[] data = {5,2,9};
 	Merge.mergesort(data);
 	String s = "";
 	for(int i = 0; i<data.length; i++){
 	    s+= data[i] + " ";
 	}
 	System.out.println(s);
-	}*/
+    }
 }
 
