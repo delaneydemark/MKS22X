@@ -105,11 +105,33 @@ public class Quick{
     }
 
     public static void quickH(int[] data, int start, int end){
-	if(end-start> 0){
+	if(end-start<=10 && end-start>0){
+	    int indices[] = partition(data, start, end);
+	    Quick.insertionSort(data, start, indices[0]);
+	    Quick.insertionSort(data, indices[1]+1, end);
+	}else if(end-start>0){
 	    int indices[] = partition(data, start, end);
 	    quickH(data, start, indices[0]);
 	    quickH(data, indices[1]+1, end);
 	}
+    }
+
+    private static void swap(int[]ary,int a, int b){
+        int c =ary[a];
+        ary[a] = ary[b];
+        ary[b] = c;
+    }
+
+    public static void insertionSort(int[] ary, int start, int end){
+        for (int i = start+1; i<=end; i++){
+                int current = i;
+                for (int j = i-1; j>=start; j--){
+                        if(ary[j]>ary[current]){
+                                swap(ary,j,current);
+                                current = j;
+                        }
+                }
+        }
     }
     /*public static void main(String[] args){
 		int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
@@ -138,4 +160,13 @@ public class Quick{
 
 		
 		}*/
+    public static void main(String[] args){
+	int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
+	Quick.insertionSort(arr, 3, 10);
+	String s = "";
+	for(int i = 0; i<arr.length; i++){
+	    s+= arr[i] + " ";
+	}
+	System.out.println(s);
+    }
 }
