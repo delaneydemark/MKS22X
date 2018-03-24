@@ -26,7 +26,8 @@ public class Merge{
     }
 
     private static void msort(int[] data, int[] temp, int lo, int hi){
-	if(lo>=hi){
+	if(hi-lo <= 10){
+	    insertionSort(data, lo, hi);
 	    return ;
 	}
 	for(int i = lo; i<=hi; i++){
@@ -38,11 +39,29 @@ public class Merge{
 	merge(data, temp, lo, mid, hi);
 	
     }
+
+    private static void swap(int[]ary,int a, int b){
+        int c =ary[a];
+        ary[a] = ary[b];
+        ary[b] = c;
+    }
+
+    public static void insertionSort(int[] ary, int start, int end){
+        for (int i = start+1; i<=end; i++){
+                int current = i;
+                for (int j = i-1; j>=start; j--){
+                        if(ary[j]>ary[current]){
+                                swap(ary,j,current);
+                                current = j;
+                        }
+                }
+        }
+    }
     
 
     public static void main(String[] args){
-	int[] data = {5,2,9};
-	Merge.mergesort(data);
+	int[] data = {999,999,999,4,1,0,3,2,999,999,999};
+	Merge.insertionSort(data, 3, 10);
 	String s = "";
 	for(int i = 0; i<data.length; i++){
 	    s+= data[i] + " ";
