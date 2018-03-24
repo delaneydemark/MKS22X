@@ -26,7 +26,7 @@ public class Merge{
     }
 
     private static void msort(int[] data, int[] temp, int lo, int hi){
-	if(hi-lo <= 10){
+	if(hi-lo <= 25){
 	    insertionSort(data, lo, hi);
 	    return ;
 	}
