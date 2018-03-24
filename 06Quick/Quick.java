@@ -105,10 +105,8 @@ public class Quick{
     }
 
     public static void quickH(int[] data, int start, int end){
-	if(end-start<=10 && end-start>0){
-	    int indices[] = partition(data, start, end);
-	    Quick.insertionSort(data, start, indices[0]);
-	    Quick.insertionSort(data, indices[1]+1, end);
+	if(end-start<=20 && end-start>0){
+	    Quick.insertionSort(data, start, end);
 	}else if(end-start>0){
 	    int indices[] = partition(data, start, end);
 	    quickH(data, start, indices[0]);
@@ -162,7 +160,7 @@ public class Quick{
 		}*/
     public static void main(String[] args){
 	int[] arr = {999,999,999,4,1,0,3,2,999,999,999};
-	Quick.insertionSort(arr, 3, 10);
+	Quick.quicksort(arr);
 	String s = "";
 	for(int i = 0; i<arr.length; i++){
 	    s+= arr[i] + " ";
