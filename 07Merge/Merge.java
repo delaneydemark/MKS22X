@@ -61,7 +61,7 @@ public class Merge{
 
     public static void main(String[] args){
 	int[] data = {999,999,999,4,1,0,3,2,999,999,999};
-	Merge.insertionSort(data, 3, 10);
+	Merge.mergesort(data);
 	String s = "";
 	for(int i = 0; i<data.length; i++){
 	    s+= data[i] + " ";
