@@ -10,15 +10,27 @@ public class MyLinkedList{
     }
 
     public int size(){
+	return length;
     }
 
     public String toString(){
+	String s = "{";
+	Node i = first;
+	while(i!=null){
+	    if(i.next==null){
+		s+=i.getValue() + "}";
+	    }else{
+		s+=i.getValue() + ", ";
+	    }
+	    i = node.next;
+	}
+	return s;
     }
 
     public int get(int index){
     }
 
-    public int set(int index, int new){
+    public int set(int index, int newValue){
     }
 
     public int indexOf(int value){
