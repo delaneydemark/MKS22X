@@ -30,5 +30,9 @@ public class MyLinkedList{
 	public void setValue(int i){
 	    data = i;
 	}
+
+	public String toString(){
+	    return prev + " " + data + " " + next;
+	}
     }
 }
