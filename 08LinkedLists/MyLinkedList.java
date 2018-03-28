@@ -28,6 +28,15 @@ public class MyLinkedList{
     }
 
     public int get(int index){
+	Node i = first;
+	int j = 0;
+	int val = 0;
+	while(i!=null && j<length){
+	    if(j==index){
+		val = i.getValue();
+	    }
+	}
+	return val;
     }
 
     public int set(int index, int newValue){
