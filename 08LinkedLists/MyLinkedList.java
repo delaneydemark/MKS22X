@@ -35,11 +35,22 @@ public class MyLinkedList{
 	    if(j==index){
 		val = i.getValue();
 	    }
+	    j++:
 	}
 	return val;
     }
 
     public int set(int index, int newValue){
+	Node i = first;
+	int j = 0;
+	int val = 0;
+	while(i!=null & j<length){
+	    if(j==index){
+		i.setValue(newValue);
+	    }
+	    j++;
+	}
+	return val;
     }
 
     public int indexOf(int value){
