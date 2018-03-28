@@ -3,6 +3,9 @@ public class MyLinkedList{
     Node last;
     int length;
 
+    public MyLinkedList(){
+    }
+
     private class Node{
 	Node next, prev;
 	int data;
