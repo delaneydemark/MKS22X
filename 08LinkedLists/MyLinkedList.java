@@ -28,12 +28,12 @@ public class MyLinkedList{
 	String s = "[";
 	Node i = first;
 	while(i!=null){
-	    if(i.next==null){
+	    if(i.getNext()==null){
 		s+=i.getValue() + "]";
 	    }else{
 		s+=i.getValue() + ", ";
 	    }
-	    i = node.next;
+	    i = node.getNext();
 	}
 	return s;
     }
@@ -106,5 +106,9 @@ public class MyLinkedList{
 	public String toString(){
 	    return prev + " " + data + " " + next;
 	}
+    }
+
+    public static void main(String[] args){
+	
     }
 }
