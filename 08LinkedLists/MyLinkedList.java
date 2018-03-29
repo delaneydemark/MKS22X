@@ -7,6 +7,17 @@ public class MyLinkedList{
     }
 
     public boolean add(int value){
+	
+	if(length==0){
+	    first.setValue(value);
+	    last.setValue(value);
+	}else{
+	    Node i = new Node();
+	    i.setValue(value);
+	    last.setNext(i);
+	    i.setPrev(last);
+	}
+	length++;
     }
 
     public int size(){
@@ -14,11 +25,11 @@ public class MyLinkedList{
     }
 
     public String toString(){
-	String s = "{";
+	String s = "[";
 	Node i = first;
 	while(i!=null){
 	    if(i.next==null){
-		s+=i.getValue() + "}";
+		s+=i.getValue() + "]";
 	    }else{
 		s+=i.getValue() + ", ";
 	    }
@@ -35,7 +46,8 @@ public class MyLinkedList{
 	    if(j==index){
 		val = i.getValue();
 	    }
-	    j++:
+	    j++;
+	    i = i.getNext();
 	}
 	return val;
     }
@@ -49,6 +61,7 @@ public class MyLinkedList{
 		i.setValue(newValue);
 	    }
 	    j++;
+	    i = i.getNext();
 	}
 	return val;
     }
