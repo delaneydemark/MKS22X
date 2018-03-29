@@ -116,5 +116,7 @@ public class MyLinkedList{
 	MyLinkedList test = new MyLinkedList();
 	test.add(7);
 	System.out.println(test.toString());
+	System.out.println(test.size());
+	System.out.println(test.get(0));
     }
 }
