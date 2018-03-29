@@ -4,6 +4,9 @@ public class MyLinkedList{
     int length;
 
     public MyLinkedList(){
+	first = new Node();
+	last = new Node();
+	length = 0;
     }
 
     public boolean add(int value){
@@ -18,6 +21,7 @@ public class MyLinkedList{
 	    i.setPrev(last);
 	}
 	length++;
+	return true;
     }
 
     public int size(){
@@ -33,7 +37,7 @@ public class MyLinkedList{
 	    }else{
 		s+=i.getValue() + ", ";
 	    }
-	    i = node.getNext();
+	    i = i.getNext();
 	}
 	return s;
     }
@@ -66,14 +70,14 @@ public class MyLinkedList{
 	return val;
     }
 
-    public int indexOf(int value){
+    /*public int indexOf(int value){
     }
 
     public void add(int index, int value){
     }
 
     public int remove(int index){
-    }
+    }*/
 
     private class Node{
 	Node next, prev;
@@ -109,6 +113,8 @@ public class MyLinkedList{
     }
 
     public static void main(String[] args){
-	
+	MyLinkedList test = new MyLinkedList();
+	test.add(7);
+	System.out.println(test.toString());
     }
 }
