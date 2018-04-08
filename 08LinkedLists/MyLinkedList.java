@@ -64,7 +64,7 @@ public class MyLinkedList{
 	}
 	Node i = first;
 	int j = 0;
-	while(i!=null & j<length){
+	while(i!=null && j<length){
 	    if(j==index){
 		return i;
 	    }
@@ -81,7 +81,7 @@ public class MyLinkedList{
 	Node i = first;
 	int j = 0;
 	int val = 0;
-	while(i!=null & j<length){
+	while(i!=null && j<length){
 	    if(j==index){
 		val = i.getValue();
 		i.setValue(newValue);
@@ -93,9 +93,13 @@ public class MyLinkedList{
     }
 
     public int indexOf(int value){
-	Node i = first;
 	int j = 0;
-	
+	while(j<length){
+	    if(this.get(j)==value){
+		return j;
+	    }
+	    j++;
+	}
 	return -1;
     }
 
