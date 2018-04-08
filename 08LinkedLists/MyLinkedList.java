@@ -42,6 +42,9 @@ public class MyLinkedList{
     }
 
     public int get(int index){
+	if(index<0 || index>=length){
+	    throw new IndexOutOfBoundsException();
+	}
 	Node i = first;
 	int j = 0;
 	int val = 0;
@@ -72,6 +75,9 @@ public class MyLinkedList{
     }
 
     public int set(int index, int newValue){
+	if(index<0 || index>=length){
+	    throw new IndexOutOfBoundsException();
+	}
 	Node i = first;
 	int j = 0;
 	int val = 0;
