@@ -41,7 +41,7 @@ public class MyLinkedList{
 	return s;
     }
 
-    public int get(int index){
+    public Integer get(int index){
 	if(index<0 || index>=length){
 	    throw new IndexOutOfBoundsException();
 	}
@@ -74,7 +74,7 @@ public class MyLinkedList{
 	return i;
     }
 
-    public int set(int index, int newValue){
+    public Integer set(int index, int newValue){
 	if(index<0 || index>=length){
 	    throw new IndexOutOfBoundsException();
 	}
