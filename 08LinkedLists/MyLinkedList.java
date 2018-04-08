@@ -17,8 +17,9 @@ public class MyLinkedList{
 	}else{
 	    Node i = new Node();
 	    i.setValue(value);
-	    last.setNext(i);
 	    i.setPrev(last);
+	    last.setNext(i);
+	    last = i;
 	}
 	length++;
 	return true;
@@ -115,8 +116,13 @@ public class MyLinkedList{
     public static void main(String[] args){
 	MyLinkedList test = new MyLinkedList();
 	test.add(7);
+	
+	//System.out.println(test.size());
+	//System.out.println(test.get(0));
+	//test.add(3);
+	//test.add(6);
+	//test.add(9);
+	test.set(0,3);
 	System.out.println(test.toString());
-	System.out.println(test.size());
-	System.out.println(test.get(0));
     }
 }
