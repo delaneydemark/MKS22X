@@ -152,7 +152,7 @@ public class MyLinkedList{
     }
 
     
-    public boolean remove(Integer value, boolean a){
+    public boolean remove(Integer value){
 	int index = indexOf(value);
 	if(index==0){
 	    first.getNext().setPrev(null);
@@ -243,7 +243,7 @@ public class MyLinkedList{
 	//System.out.println(test.toString());
 	test.add(1,1);
 	System.out.println(test.toString());
-	System.out.println(test.remove(5,true));
+	System.out.println(test.remove(5));
 	System.out.println(test.toString());
 	//System.out.println(test.indexOf(5));
     }
