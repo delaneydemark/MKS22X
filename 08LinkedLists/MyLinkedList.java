@@ -151,10 +151,24 @@ public class MyLinkedList{
 	return val;
     }
 
-    /*
-    public boolean remove(Integer value){
+    
+    public boolean remove(Integer value, boolean a){
+	int index = indexOf(value);
+	if(index==0){
+	    first.getNext().setPrev(null);
+	    first = first.getNext();
+	}else if(index == this.size()-1){
+	    last = last.getPrev();
+	    last.setNext(null);
+	}else{
+	    Node i = getNode(index);
+	    i.getPrev().setNext(i.getNext());
+	    i.getNext().setPrev(i.getPrev());
+	}
+	length--;
+	return true;
     }
-    */
+    
 
     private class Node{
 	Node next, prev;
@@ -230,5 +244,8 @@ public class MyLinkedList{
 	System.out.println(test.toString());
 	System.out.println(test.remove(3));
 	System.out.println(test.toString());
+	//System.out.println(test.remove(5,true));
+	//System.out.println(test.toString());
+	System.out.println(test.indexOf(5));
     }
 }
