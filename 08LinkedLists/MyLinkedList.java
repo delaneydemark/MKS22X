@@ -127,10 +127,25 @@ public class MyLinkedList{
 	length++;
     }
 
-    /*
-    public Integer remove(int index){
-    }
     
+    public Integer remove(int index){
+	if(index<0 || index>=length){
+	    throw new IndexOutOfBoundsException();
+	}
+	int val = 0;
+	if(index==0){
+	    first.getNext().setPrev(null);
+	    val = first.getValue();
+	    first = first.getNext();
+	}else if(index == length-1){
+	    
+	}else{
+	    
+	}
+	return val;
+    }
+
+    /*
     public boolean remove(Integer value){
     }
     */
@@ -197,7 +212,9 @@ public class MyLinkedList{
 	System.out.println(test.toString());
 	test.add(5, 5);
 	System.out.println(test.toString());
-	test.add(5,1);
+	test.add(1,1);
+	System.out.println(test.toString());
+	System.out.println(test.remove(0));
 	System.out.println(test.toString());
     }
 }
