@@ -125,12 +125,12 @@ public class MyLinkedList{
 	MyLinkedList test = new MyLinkedList();
 	test.add(7);
 	
-	//System.out.println(test.size());
-	//System.out.println(test.get(0));
-	//test.add(3);
-	//test.add(6);
-	//test.add(9);
-	test.set(0,3);
+	System.out.println(test.size());
+	System.out.println(test.get(0));
+	test.add(3);
+	test.add(6);
+	test.add(9);
+	//test.set(0,3);
 	System.out.println(test.toString());
     }
 }
