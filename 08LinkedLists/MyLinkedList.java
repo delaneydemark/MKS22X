@@ -138,12 +138,14 @@ public class MyLinkedList{
 	    first.getNext().setPrev(null);
 	    first = first.getNext();
 	}else if(index == length-1){
-	    //last.getPrev().setNext(null);
 	    val = last.getValue();
 	    last = last.getPrev();
 	    last.setNext(null);
 	}else{
-	    
+	    Node i = getNode(index);
+	    val = i.getValue();
+	    i.getPrev().setNext(i.getNext());
+	    i.getNext().setPrev(i.getPrev());
 	}
 	length--;
 	return val;
@@ -226,7 +228,7 @@ public class MyLinkedList{
 	//System.out.println(test.toString());
 	test.add(1,1);
 	System.out.println(test.toString());
-	System.out.println(test.remove(0));
+	System.out.println(test.remove(3));
 	System.out.println(test.toString());
     }
 }
