@@ -116,7 +116,13 @@ public class MyLinkedList{
 	}else if(index == length){
 	    this.add(value);
 	}else{
-	    
+	    Node old = getNode(index);
+	    Node i = new Node(value);
+	    old.getPrev().setNext(i);
+	    i.setPrev(old.getPrev());
+	    i.setNext(old);
+	    old.setPrev(i);
+
 	}
 	length++;
     }
@@ -190,6 +196,8 @@ public class MyLinkedList{
 	test.add(0, 0);
 	System.out.println(test.toString());
 	test.add(5, 5);
+	System.out.println(test.toString());
+	test.add(5,1);
 	System.out.println(test.toString());
     }
 }
