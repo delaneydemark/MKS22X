@@ -83,6 +83,7 @@ public class MyLinkedList{
 	int val = 0;
 	while(i!=null & j<length){
 	    if(j==index){
+		val = i.getValue();
 		i.setValue(newValue);
 	    }
 	    j++;
@@ -91,9 +92,14 @@ public class MyLinkedList{
 	return val;
     }
 
-    /*public int indexOf(int value){
+    public int indexOf(int value){
+	Node i = first;
+	int j = 0;
+	
+	return -1;
     }
 
+    /*
     public void add(int index, int value){
     }
 
