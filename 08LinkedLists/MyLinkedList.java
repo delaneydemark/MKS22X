@@ -103,10 +103,20 @@ public class MyLinkedList{
 	return -1;
     }
 
-    /*
+    
     public void add(int index, int value){
+	if(index<0 || index>length){
+	    throw new IndexOutOfBoundsException();
+	}
+	if(index == 0){
+	   
+	}else if(index == length){
+	    
+	}else{
+	}
     }
 
+    /*
     public int remove(int index){
     }*/
 
@@ -166,7 +176,7 @@ public class MyLinkedList{
 	System.out.println(test.toString());
 	//Node i = test.getNode(2);
 	//System.out.println(i.getValue());
-	System.out.println(test.indexOf(6));
-	System.out.println(test.indexOf(2));
+	//System.out.println(test.indexOf(6));
+	//System.out.println(test.indexOf(2));
     }
 }
