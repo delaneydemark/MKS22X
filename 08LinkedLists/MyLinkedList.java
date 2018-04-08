@@ -59,6 +59,16 @@ public class MyLinkedList{
 	if(index<0 || index>=length){
 	    throw new IndexOutOfBoundsException();
 	}
+	Node i = first;
+	int j = 0;
+	while(i!=null & j<length){
+	    if(j==index){
+		return i;
+	    }
+	    j++;
+	    i = i.getNext();
+	}
+	return i;
     }
 
     public int set(int index, int newValue){
