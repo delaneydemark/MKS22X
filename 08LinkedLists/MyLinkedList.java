@@ -111,8 +111,9 @@ public class MyLinkedList{
 	if(index == 0){
 	   
 	}else if(index == length){
-	    
+	    this.add(value);
 	}else{
+	    
 	}
     }
 
