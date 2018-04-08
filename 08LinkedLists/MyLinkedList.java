@@ -9,14 +9,12 @@ public class MyLinkedList{
 	length = 0;
     }
 
-    public boolean add(int value){
-	
+    public boolean add(Integer value){
+	Node i = new Node(value);
 	if(length==0){
-	    first.setValue(value);
-	    last.setValue(value);
+	    first = i;
+	    last = i;
 	}else{
-	    Node i = new Node();
-	    i.setValue(value);
 	    i.setPrev(last);
 	    last.setNext(i);
 	    last = i;
