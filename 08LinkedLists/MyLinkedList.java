@@ -84,6 +84,16 @@ public class MyLinkedList{
 	Node next, prev;
 	int data;
 
+	public Node(Integer n){
+	    data = n;
+	    next = null;
+	    prev = null;
+	}
+
+	public Node(){
+	    
+	}
+
 	public Node getNext(){
 	    return next;
 	}
