@@ -148,5 +148,7 @@ public class MyLinkedList{
 	test.add(9);
 	//test.set(0,3);
 	System.out.println(test.toString());
+	Node i = test.getNode(2);
+	System.out.println(i.getValue());
     }
 }
