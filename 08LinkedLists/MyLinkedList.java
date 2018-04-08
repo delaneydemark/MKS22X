@@ -134,14 +134,18 @@ public class MyLinkedList{
 	}
 	int val = 0;
 	if(index==0){
-	    first.getNext().setPrev(null);
 	    val = first.getValue();
+	    first.getNext().setPrev(null);
 	    first = first.getNext();
 	}else if(index == length-1){
-	    
+	    //last.getPrev().setNext(null);
+	    val = last.getValue();
+	    last = last.getPrev();
+	    last.setNext(null);
 	}else{
 	    
 	}
+	length--;
 	return val;
     }
 
@@ -177,11 +181,19 @@ public class MyLinkedList{
 	}
 
 	public void setNext(Node n){
-	    next = n;
+	    if(n==null){
+		next = null;
+	    }else{
+		next = n;
+	    }
 	}
 
 	public void setPrev(Node p){
-	    prev = p;
+	    if(p==null){
+		prev = null;
+	    }else{
+		prev = p;
+	    }
 	}
 
 	public void setValue(int i){
@@ -197,21 +209,21 @@ public class MyLinkedList{
 	MyLinkedList test = new MyLinkedList();
 	test.add(7);
 	
-	System.out.println(test.size());
-	System.out.println(test.get(0));
+	//System.out.println(test.size());
+	//System.out.println(test.get(0));
 	test.add(3);
 	test.add(6);
 	test.add(9);
 	//test.set(0,3);
-	System.out.println(test.toString());
+	//System.out.println(test.toString());
 	//Node i = test.getNode(2);
 	//System.out.println(i.getValue());
 	//System.out.println(test.indexOf(6));
 	//System.out.println(test.indexOf(2));
 	test.add(0, 0);
-	System.out.println(test.toString());
+	//System.out.println(test.toString());
 	test.add(5, 5);
-	System.out.println(test.toString());
+	//System.out.println(test.toString());
 	test.add(1,1);
 	System.out.println(test.toString());
 	System.out.println(test.remove(0));
