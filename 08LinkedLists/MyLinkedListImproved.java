@@ -27,7 +27,16 @@ public class MyLinkedListImproved<T>{
 	return length;
     }
 
+    public void clear(){
+	first = null;
+	last = null;
+	length = 0;
+    }
+
     public String toString(){
+	if(length==0){
+	    return "[]";
+	}
 	String s = "[";
 	Node i = first;
 	while(i!=null){
