@@ -1,4 +1,6 @@
-public class MyLinkedListImproved<T>{
+import java.util.Iterator;
+
+public class MyLinkedListImproved<T> implements Iterable<T>{
     Node first;
     Node last;
     int length;
@@ -7,6 +9,10 @@ public class MyLinkedListImproved<T>{
 	first = new Node();
 	last = new Node();
 	length = 0;
+    }
+
+    public Iterator<T> iterator(){
+	return new MyLinkedListIterator(this);
     }
 
     public boolean add(T value){
@@ -228,6 +234,29 @@ public class MyLinkedListImproved<T>{
 
 	public String toString(){
 	    return prev + " " + data + " " + next;
+	}
+    }
+
+    public class MyLinkedListIterator implements Iterator<T>{
+	private MyLinkedListImproved data;
+	private int current;
+
+	public MyLinkedListIterator(MyLinkedListImproved l){
+	    data = l;
+	    current = 0;
+	}
+
+	public boolean hasNext(){
+	    return current<data.size();
+	}
+
+	public T next(){
+	    current++;
+	    return data.get(current-1);
+	}
+
+	public void remove(){
+	    throw new UnsupportedOperationException();
 	}
     }
 
