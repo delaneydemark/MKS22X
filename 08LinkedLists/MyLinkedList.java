@@ -27,7 +27,16 @@ public class MyLinkedList{
 	return length;
     }
 
+    public void clear(){
+	first = null;
+	last = null;
+	length = 0;
+    }
+
     public String toString(){
+	if(length==0){
+	    return "[]";
+	}
 	String s = "[";
 	Node i = first;
 	while(i!=null){
@@ -246,5 +255,7 @@ public class MyLinkedList{
 	System.out.println(test.remove(5));
 	System.out.println(test.toString());
 	//System.out.println(test.indexOf(5));
+	test.clear();
+	System.out.println(test.toString());
     }
 }
