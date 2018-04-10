@@ -92,10 +92,10 @@ public class MyLinkedList{
 	return val;
     }
 
-    public int indexOf(int value){
+    public int indexOf(Integer value){
 	int j = 0;
 	while(j<length){
-	    if(this.get(j)==value){
+	    if(this.get(j).equals(value)){
 		return j;
 	    }
 	    j++;
