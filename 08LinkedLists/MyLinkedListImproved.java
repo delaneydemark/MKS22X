@@ -269,7 +269,7 @@ public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
 
     public class MyLinkedListIterator implements Iterator<T>{
 	private MyLinkedListImproved data;
-	private int current;
+	private Node current;
 
 	public MyLinkedListIterator(MyLinkedListImproved l){
 	    data = l;
