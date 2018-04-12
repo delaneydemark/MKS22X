@@ -1,11 +1,11 @@
 import java.util.Iterator;
 
-public class MyLinkedListImproved<T> implements Iterable<T>{
+public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
     Node first;
     Node last;
     int length;
 
-    public MyLinkedListImproved<T>(){
+    public MyLinkedListImproved(){
 	first = new Node();
 	last = new Node();
 	length = 0;
@@ -13,6 +13,10 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 
     public Iterator<T> iterator(){
 	return new MyLinkedListIterator(this);
+    }
+
+    public int compareTo(T b){
+	return this.compareTo(b);
     }
 
     public boolean add(T value){
@@ -184,6 +188,32 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 	length-=1;
 	return true;
     }
+
+    public T min(){
+	Node current = first;
+	T smallest = first.getValue();
+	while(current!=null){
+	    if(current.getValue().compareTo(smallest)<0){
+		smallest = current.getValue();
+	    }
+	    current = current.getNext();
+	}
+	return smallest;
+    }
+
+    public T max(){
+	Node current = first;
+	T largest = first.getValue();
+	while(current!=null){
+	    if(current.getValue().compareTo(largest)>0){
+		largest = current.getValue();
+	    }
+	    current = current.getNext();
+	}
+	return largest;
+    }
+	
+    
     
 
     private class Node{
@@ -208,7 +238,7 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 	    return prev;
 	}
 
-	public int getValue(){
+	public T getValue(){
 	    return data;
 	}
 
@@ -247,10 +277,13 @@ public class MyLinkedListImproved<T> implements Iterable<T>{
 	}
 
 	public boolean hasNext(){
-	    return current<data.size();
+	    return current<data.size()-1;
 	}
 
 	public T next(){
+	    if(!(this.hasNext())){
+		throw new NoSuchElementException();
+	    }
 	    current++;
 	    return data.get(current-1);
 	}
