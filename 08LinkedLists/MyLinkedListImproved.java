@@ -275,15 +275,16 @@ public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
 	}
 
 	public boolean hasNext(){
-	    return n!=null;
+	    return current!=null;
 	}
 
 	public T next(){
-	    if(!(this.hasNext())){
+	    if(this.hasNext()){
+		current = current.getNext();
+	    }else{
 		throw new NoSuchElementException();
 	    }
-	    current++;
-	    return data.get(current-1);
+	    return current.getPrev().getValue();
 	}
 
 	public void remove(){
