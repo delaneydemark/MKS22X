@@ -39,8 +39,6 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
     }
 
     public void clear(){
-	first = null;
-	last = null;
 	length = 0;
     }
 
@@ -227,6 +225,13 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	    current = current.getNext();
 	}
 	return largeI;
+    }
+
+    public void extend(MyLinkedListImproved<T> other){
+	other.first.setPrev(this.last);
+	this.last.setNext(other.first);
+	this.length+=other.length;
+	other.clear();
     }
 	
     
