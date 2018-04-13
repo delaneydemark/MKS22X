@@ -268,16 +268,14 @@ public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
     }
 
     public class MyLinkedListIterator implements Iterator<T>{
-	private MyLinkedListImproved data;
 	private Node current;
 
-	public MyLinkedListIterator(MyLinkedListImproved l){
-	    data = l;
-	    current = 0;
+	public MyLinkedListIterator(Node n){
+	    current = n;
 	}
 
 	public boolean hasNext(){
-	    return current<data.size()-1;
+	    return n!=null;
 	}
 
 	public T next(){
