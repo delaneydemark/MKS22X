@@ -209,7 +209,7 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
 	return smallI;
     }
 
-    public T max(){
+    public int max(){
 	if(length==0){
 	    return -1;
 	}
@@ -311,27 +311,30 @@ public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T
     public static void main(String[] args){
 	MyLinkedListImproved<Integer> test = new MyLinkedListImproved<Integer>();
 	test.add(7);
-	
-	//System.out.println(test.size());
-	//System.out.println(test.get(0));
 	test.add(3);
 	test.add(6);
 	test.add(9);
-	//test.set(0,3);
-	//System.out.println(test.toString());
-	//Node i = test.getNode(2);
-	//System.out.println(i.getValue());
-	//System.out.println(test.indexOf(6));
-	//System.out.println(test.indexOf(2));
 	test.add(0, 0);
-	//System.out.println(test.toString());
 	test.add(5, 5);
-	//System.out.println(test.toString());
 	test.add(1,1);
 	System.out.println(test.toString());
-	System.out.println(test.remove(5));
-	System.out.println(test.toString());
-	//System.out.println(test.indexOf(5));
+	// 0
+	System.out.println(test.min());
+	// 5
+	System.out.println(test.max());
+
+	MyLinkedListImproved<String> s = new MyLinkedListImproved<String>();
+	s.add("hi");
+	s.add("this");
+	s.add("is");
+	s.add("a");
+	s.add("test");
+	System.out.println(s.toString());
+	// 3
+	System.out.println(s.min());
+	// 1 
+	System.out.println(s.max());
+	    
     }
 }
 
