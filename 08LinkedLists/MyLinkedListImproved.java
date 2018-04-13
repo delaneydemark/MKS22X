@@ -1,6 +1,7 @@
 import java.util.Iterator;
+import java.util.*;
 
-public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
+public class MyLinkedListImproved<T extends Comparable<T>> implements Iterable<T>{
     Node first;
     Node last;
     int length;
@@ -12,7 +13,7 @@ public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
     }
 
     public Iterator<T> iterator(){
-	return new MyLinkedListIterator(this);
+	return new MyLinkedListIterator(first);
     }
 
     public int compareTo(T b){
@@ -189,28 +190,43 @@ public class MyLinkedListImproved<T> implements Iterable<T>,Comparable{
 	return true;
     }
 
-    public T min(){
+    public int min(){
+	if(length==0){
+	    return -1;
+	}
 	Node current = first;
 	T smallest = first.getValue();
+	int smallI = 0;
+	int index = 0;
 	while(current!=null){
 	    if(current.getValue().compareTo(smallest)<0){
 		smallest = current.getValue();
+		smallI = index;
 	    }
+	    index++;
 	    current = current.getNext();
 	}
-	return smallest;
+	return smallI;
     }
 
     public T max(){
+	if(length==0){
+	    return -1;
+	}
 	Node current = first;
 	T largest = first.getValue();
+	int largeI = 0;
+	int index = 0;
 	while(current!=null){
 	    if(current.getValue().compareTo(largest)>0){
 		largest = current.getValue();
+		largeI = index;
+		
 	    }
+	    index++;
 	    current = current.getNext();
 	}
-	return largest;
+	return largeI;
     }
 	
     
