@@ -35,10 +35,10 @@ public class Sorts{
 	}
     }
 
-    public void sortNegatives(MyLinkedListImproved<Integer> data){
+    public static MyLinkedListImproved sortNegatives(MyLinkedListImproved<Integer> data){
 	@SuppressWarnings("unchecked") MyLinkedListImproved<Integer>[] buckets = new MyLinkedListImproved[10];
 	for(int i = 0; i<buckets.length; i++){
-	    buckets[i] = new MyLinkedListImproved<Integer>;
+	    buckets[i] = new MyLinkedListImproved<Integer>();
 	}
 	
 	int minI = data.min();
@@ -47,6 +47,7 @@ public class Sorts{
 	for(int d = 1; d<=digits; d++){
 	    for(Integer i : data){
 		int bucket = Sorts.getDigit(i, d) + 9;
+		buckets[bucket].add(i);
 	    }
 
 	    data.clear();
@@ -56,6 +57,7 @@ public class Sorts{
 		buckets[i].clear();
 	    }
 	}
+	return data;
     }
 
     public static int digits(Integer n){
@@ -94,6 +96,16 @@ public class Sorts{
 	System.out.println(Sorts.getDigit(test.get(2), 2));
 	Sorts.radixsort(test);
 	System.out.println(test.toString());
+
+	MyLinkedListImproved<Integer> negativeTest = new MyLinkedListImproved<Integer>();
+	negativeTest.add(-1);
+	negativeTest.add(-30);
+	negativeTest.add(-6);
+	negativeTest.add(-17);
+	negativeTest.add(-300);
+	System.out.println(negativeTest.toString());
+	Sorts.sortNegatives(negativeTest);
+	System.out.println(negativeTest.toString());
     }
 
     
