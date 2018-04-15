@@ -35,6 +35,29 @@ public class Sorts{
 	}
     }
 
+    public void sortNegatives(MyLinkedListImproved<Integer> data){
+	@SuppressWarnings("unchecked") MyLinkedListImproved<Integer>[] buckets = new MyLinkedListImproved[10];
+	for(int i = 0; i<buckets.length; i++){
+	    buckets[i] = new MyLinkedListImproved<Integer>;
+	}
+	
+	int minI = data.min();
+	Integer min = data.get(minI);
+	int digits = Sorts.digits(min);
+	for(int d = 1; d<=digits; d++){
+	    for(Integer i : data){
+		int bucket = Sorts.getDigit(i, d) + 9;
+	    }
+
+	    data.clear();
+
+	    for(int i = 0; i<buckets.length; i++){
+		data.extend(buckets[i]);
+		buckets[i].clear();
+	    }
+	}
+    }
+
     public static int digits(Integer n){
 	int sum = 0;
 	if(n<0){
