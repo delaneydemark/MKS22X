@@ -4,6 +4,9 @@ import java.io.*;
 public class Sorts{
     public static void radixsort(MyLinkedListImproved<Integer> data){
 	@SuppressWarnings("unchecked") MyLinkedListImproved<Integer>[] buckets = new MyLinkedListImproved[10];
+	for(int i = 0; i<buckets.length; i++){
+	    buckets[i] = new MyLinkedListImproved<Integer>();
+	}
 
 	int maxI = data.max();
 	Integer max = data.get(maxI);
