@@ -6,9 +6,19 @@ public class Sorts{
 
 	int maxI = data.max();
 	Integer max = data.get(maxI);
+	
     }
 
-    private static int digits(Integer n){
+    public static int digits(Integer n){
+	int sum = 0;
+	if(n<0){
+	    num *= -1;
+	}
+	while(n>=1){
+	    sum++;
+	    n/=10;
+	}
+	return sum;
     }
 
     
