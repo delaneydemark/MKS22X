@@ -30,7 +30,7 @@ public class Sorts{
 	test.add(9);
 	test.add(666);
 	System.out.println(test.toString());
-	
+	System.out.println(Sorts.digits(test.get(test.max())));
     }
 
     
