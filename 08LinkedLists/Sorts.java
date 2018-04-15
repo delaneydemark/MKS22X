@@ -8,6 +8,9 @@ public class Sorts{
 	    buckets[i] = new MyLinkedListImproved<Integer>();
 	}
 
+	MyLinkedListImproved<Integer> negativeNums = new MyLinkedListImproved<>();
+	
+	
 	int maxI = data.max();
 	Integer max = data.get(maxI);
 	int digits = Sorts.digits(max);
