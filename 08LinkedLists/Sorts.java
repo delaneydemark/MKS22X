@@ -60,6 +60,8 @@ public class Sorts{
 	System.out.println(test.toString());
 	System.out.println(Sorts.digits(test.get(test.max())));
 	System.out.println(Sorts.getDigit(test.get(2), 2));
+	Sorts.radixsort(test);
+	System.out.println(test.toString());
     }
 
     
