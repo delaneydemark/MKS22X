@@ -9,7 +9,13 @@ public class Sorts{
 	}
 
 	MyLinkedListImproved<Integer> negativeNums = new MyLinkedListImproved<>();
-	
+
+	for(Integer i : data){
+	    if(i<0){
+		negativeNums.add(i);
+		data.remove(i);
+	    }
+	}
 	
 	int maxI = data.max();
 	Integer max = data.get(maxI);
