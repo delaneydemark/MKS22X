@@ -10,7 +10,9 @@ public class Sorts{
 
 	int maxI = data.max();
 	Integer max = data.get(maxI);
-	
+	int digits = Sorts.digits(max);
+	for(int d = 1; d<=digits; d++){
+	}
     }
 
     public static int digits(Integer n){
