@@ -11,7 +11,12 @@ public class Sorts{
 	int maxI = data.max();
 	Integer max = data.get(maxI);
 	int digits = Sorts.digits(max);
+	int level = 1;
 	for(int d = 1; d<=digits; d++){
+	    for(Integer i : data){
+		int bucket = (i/level) % 10;
+		buckets[bucket].add(i);
+	    }
 	}
     }
 
