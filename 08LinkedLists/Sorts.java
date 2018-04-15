@@ -32,6 +32,18 @@ public class Sorts{
 	return sum;
     }
 
+    public static int getDigit(Integer n, int digit){
+	Integer d = 0;
+	int i = 1;
+	int level = 1;
+	while(i <= digit){
+	    d = (n/level) % 10;
+	    level *= 10;
+	    i++;
+	}
+	return d;
+    }
+
     public static void main(String[] args){
 	MyLinkedListImproved<Integer> test = new MyLinkedListImproved<Integer>();
 	test.add(3);
@@ -41,6 +53,7 @@ public class Sorts{
 	test.add(666);
 	System.out.println(test.toString());
 	System.out.println(Sorts.digits(test.get(test.max())));
+	System.out.println(Sorts.getDigit(test.get(2), 2));
     }
 
     
