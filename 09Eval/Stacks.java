@@ -8,7 +8,7 @@ public class Stacks{
     }
 
     public void push(Double n){
-	data.add(d);
+	data.add(n);
     }
 
     public double pop(){
@@ -16,5 +16,25 @@ public class Stacks{
 	    return 0.0;
 	}
 	return data.remove(data.size()-1);
+    }
+
+    public double peek(){
+	return data.get(data.size()-1);
+    }
+
+    public String toString(){
+	return data.toString();
+    }
+
+    public static void main(String[] args){
+	Stacks test = new Stacks();
+	test.push(5.0);
+	test.push(1.0);
+	test.push(3.0);
+	test.push(20.0);
+	System.out.println(test.toString());
+	System.out.println(test.pop());
+	System.out.println(test.toString());
+	System.out.println(test.peek());
     }
 }
