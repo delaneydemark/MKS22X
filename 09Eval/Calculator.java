@@ -1,4 +1,4 @@
-public class Eval{
+public class Calculator{
     public static double eval(String nums){
 	Stacks expression = new Stacks();
 	String[] tokens = nums.split(" ");
