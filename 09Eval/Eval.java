@@ -14,6 +14,8 @@ public class Eval{
 	    }else if(tokens[i].equals("%")){
 		double current = expression.pop();
 		expression.push(expression.pop() % current);
+	    }else{
+		expression.push(tokens[i]);
 	    }
 	}
     }
