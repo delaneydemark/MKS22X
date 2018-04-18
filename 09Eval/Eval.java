@@ -15,8 +15,15 @@ public class Eval{
 		double current = expression.pop();
 		expression.push(expression.pop() % current);
 	    }else{
-		expression.push(tokens[i]);
+		double num = Double.parseDouble(tokens[i]);
+		expression.push(num);
 	    }
 	}
+	return expression.peek();
     }
+
+    public static void main(String[] args){
+	System.out.println(Eval.eval("10 2.0 +"));
+    }
+   
 }
