@@ -10,4 +10,11 @@ public class Stacks{
     public void push(Double n){
 	data.add(d);
     }
+
+    public double pop(){
+	if(data.size()==0){
+	    return 0.0;
+	}
+	return data.remove(data.size()-1);
+    }
 }
