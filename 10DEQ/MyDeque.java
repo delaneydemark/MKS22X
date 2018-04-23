@@ -68,17 +68,18 @@ public class MyDeque<E>{
 	//System.out.println(end);
 	size++;
     }
-    /*
+    
     public E removeFirst(){
 	if(size==0){
 	    throw new NoSuchElementException();
 	}
 	E val = data[start];
-	start = (start+1) % this.size();
+	data[start] = null;
+	start = (start+1) % data.length;
 	size--;
 	return val;
     }
-
+    /*
     public E removeLast(){
 	if(size==0){
 	    throw new NoSuchElementException();
@@ -134,13 +135,17 @@ public class MyDeque<E>{
 	test.addFirst(1);
 	test.addFirst(20);
 	test.addFirst(300);
-	//test.addFirst(5);
+	test.addFirst(5);
 	//test.getFirst();
-	//test.addFirst(6);
+	test.addFirst(6);
 	//System.out.println(test.getFirst());
 	//System.out.println(test.getLast());
+	//System.out.println(test.toString());
+	//test.resize();
 	System.out.println(test.toString());
-	test.resize();
+	System.out.println(test.removeFirst());
+	System.out.println(test.toString());
+	System.out.println(test.removeFirst());
 	System.out.println(test.toString());
     }
 
