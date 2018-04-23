@@ -134,14 +134,14 @@ public class MyDeque<E>{
 	test.addFirst(1);
 	test.addFirst(20);
 	test.addFirst(300);
-	test.addFirst(5);
-	test.getFirst();
+	//test.addFirst(5);
+	//test.getFirst();
 	//test.addFirst(6);
 	//System.out.println(test.getFirst());
 	//System.out.println(test.getLast());
 	System.out.println(test.toString());
-	//test.resize();
-	//System.out.println(test.toString());
+	test.resize();
+	System.out.println(test.toString());
     }
 
 }
