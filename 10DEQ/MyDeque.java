@@ -117,7 +117,7 @@ public class MyDeque<E>{
     
     public void resize(){
 	E[] d = (E[])new Object[data.length*2];
-	for(int i = start; i<data.length; i++){
+	for(int i = start; i<start+this.size(); i++){
 	    d[i-start] = data[i % data.length];
 	}
 	start = 0;
