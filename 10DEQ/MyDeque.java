@@ -35,12 +35,16 @@ public class MyDeque<E>{
 	if(element==null){
 	    throw new NullPointerException();
 	}
-	start--;
-	if(size != data.length){
-	    if(start<0){
-		start+= data.length;
-	    }
+	if(size==0){
 	    data[start] = element;
+	}else{
+	    if(size != data.length){
+		start--;
+		if(start<0){
+		    start+= data.length;
+		}
+		data[start] = element;
+	    }
 	}
 	size++;
     }
