@@ -105,14 +105,17 @@ public class MyDeque<E>{
 	}
 	return s;
     }
-    /*
+    
     public void resize(){
 	E[] d = (E[])new Object[data.length*2];
-	for(int i = start; i<this.size(); i++){
-	    d[i-start] = data[i % this.size()];
+	for(int i = start; i<data.length; i++){
+	    d[i-start] = data[i % data.length];
 	}
+	start = 0;
+	end = this.size()-1;
 	data = d;
-	}*/
+	
+    }
 
     public static void main(String[] args){
 	MyDeque test = new MyDeque();
@@ -120,9 +123,13 @@ public class MyDeque<E>{
 	test.addFirst(4);
 	//System.out.println(test.getFirst());
 	test.addFirst(1);
-	test.addLast(20);
+	test.addFirst(20);
+	test.addFirst(300);
+	test.addFirst(5);
 	//System.out.println(test.getFirst());
 	//System.out.println(test.getLast());
+	System.out.println(test.toString());
+	test.resize();
 	System.out.println(test.toString());
     }
 
