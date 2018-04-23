@@ -79,17 +79,17 @@ public class MyDeque<E>{
 	size--;
 	return val;
     }
-    /*
     public E removeLast(){
 	if(size==0){
 	    throw new NoSuchElementException();
 	}
 	E val = data[end];
-	end = (end-1) % this.size();
+	data[end] = null;
+	end = (end-1) % data.length;
 	size--;
 	return val;
     }
-    */
+    
     public E getFirst(){
 	if(size==0){
 	    throw new NoSuchElementException();
@@ -145,7 +145,7 @@ public class MyDeque<E>{
 	System.out.println(test.toString());
 	System.out.println(test.removeFirst());
 	System.out.println(test.toString());
-	System.out.println(test.removeFirst());
+	System.out.println(test.removeLast());
 	System.out.println(test.toString());
     }
 
