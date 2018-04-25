@@ -44,7 +44,10 @@ public class ExpressionTree{
     }
 
     public String toString(){
-	String s = "(";
+	if(isValue()){
+	    return "" + getValue() + " ";
+	}
+	return "( " + getLeft().toString() + getOp() + getRight().toString() + " )";
 	
     }
 
@@ -57,6 +60,10 @@ public class ExpressionTree{
     }
 
     public String toStringPrefix(){
+	if(isValue()){
+	    return "" + getValue() + " ";
+	}
+	return "" + getOp() + " " + getLeft().toStringPrefix() + getRight.toStringPrefix();
     }
 
     public double evaluate(){
@@ -76,6 +83,5 @@ public class ExpressionTree{
 	}else if(op=='/'){
 	    return a/b;
 	}
-	return 0.0;
     }
 }
