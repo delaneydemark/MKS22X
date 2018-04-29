@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class MyHeap{
 
     private String[] data;
@@ -29,7 +32,10 @@ public class MyHeap{
 	    String a = data[child];
 	    data[child] = data[parent];
 	    data[parent] = a;
+	    child = parent;
+	    parent = (child-1)/2;
 	}
+	size++;
 	
     }
 
@@ -42,7 +48,8 @@ public class MyHeap{
     }
 
     public String remove(){
-	
+	String a = data[0];
+	data
     }
 
     public String peek(){
@@ -61,6 +68,17 @@ public class MyHeap{
 	    return a.compareTo(b) * -1;
 	}
 	return a.compareTo(b);
+    }
+
+    public static void main(String[] args){
+	MyHeap test = new MyHeap();
+	test.add("s");
+	System.out.println(test.peek());
+	test.add("hi");
+	System.out.println(test.peek());
+	test.add("wooo");
+	System.out.println(test.peek());
+
     }
 	
 }
