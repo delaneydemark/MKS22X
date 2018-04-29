@@ -59,7 +59,19 @@ public class MyHeap{
 	int parent = 0;
 	int child = parent*2 + 1;
 	while(child<size && compareTo(data[parent], data[child])<0 || child+1<size && compareTo(data[parent], data[child+1])<0){
-	    
+	    if(child+1>=size){
+		String a = data[parent];
+		data[parent] = data[child];
+		data[child] = a;
+		parent = child;
+		return;
+	    }else if(compareTo(data[parent], data[child])<0){
+		String a = data[parent];
+		data[parent] = data[child];
+		data[child] = a;
+		parent = child;
+	    }else{
+	    }
 	}
     }
 
