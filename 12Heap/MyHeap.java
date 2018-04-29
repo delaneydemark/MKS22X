@@ -25,7 +25,11 @@ public class MyHeap{
 	data[size] = s;
 	int child = size;
 	int parent = (size-1)/2;
-	while(parent>=0 && compareTo(data[parent], data[child])<0)
+	while(parent>=0 && compareTo(data[parent], data[child])<0){
+	    String a = data[child];
+	    data[child] = data[parent];
+	    data[parent] = a;
+	}
 	
     }
 
