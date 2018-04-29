@@ -51,6 +51,16 @@ public class MyHeap{
 	String a = data[0];
 	data[0] = data[size-1];
 	data[size-1] = null;
+	size--;
+	return a;
+    }
+
+    private void pushDown(){
+	int parent = 0;
+	int child = parent*2 + 1;
+	while(child<size && compareTo(data[parent], data[child])<0 || child+1<size && compareTo(data[parent], data[child+1])<0){
+	    
+	}
     }
 
     public String peek(){
