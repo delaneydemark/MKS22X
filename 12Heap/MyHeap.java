@@ -52,6 +52,7 @@ public class MyHeap{
 	data[0] = data[size-1];
 	data[size-1] = null;
 	size--;
+	pushDown();
 	return a;
     }
 
@@ -71,7 +72,12 @@ public class MyHeap{
 		data[child] = a;
 		parent = child;
 	    }else{
+		String a = data[parent];
+		data[parent] = data[child+1];
+		data[child+1] = a;
+		parent = child+1;
 	    }
+	    child = parent*2 + 1;
 	}
     }
 
