@@ -37,6 +37,11 @@ public class MyHeap{
 	return size;
     }
 
-    private 
+    private int compareTo(String a, String b){
+	if(!max){
+	    return a.compareTo(b) * -1;
+	}
+	return a.compareTo(b);
+    }
 	
 }
