@@ -19,7 +19,17 @@ public class MyHeap{
     }
 
     public void add(String s){
-	
+	if(this.size()==data.length){
+	    
+	}
+    }
+
+    public void resize(){
+	String[] d = new String[data.length*2];
+	for(int i = 0; i<data.length; i++){
+	    d[i] = data[i];
+	}
+	data = d;
     }
 
     public String remove(){
