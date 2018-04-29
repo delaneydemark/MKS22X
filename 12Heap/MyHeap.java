@@ -101,8 +101,12 @@ public class MyHeap<T extends Comparable<T>>{
 	return a.compareTo(b);
     }
 
+    public String toString(){
+	return Arrays.toString(data);
+    }
+
     public static void main(String[] args){
-	MyHeap test = new MyHeap();
+	MyHeap<String> test = new MyHeap<String>();
 	test.add("s");
 	System.out.println(test.peek());
 	test.add("zzzzzzzzzzzzz");
@@ -111,7 +115,24 @@ public class MyHeap<T extends Comparable<T>>{
 	System.out.println(test.peek());
 	test.remove();
 	System.out.println(test.peek());
+	System.out.println(test.toString());
 
+	MyHeap<Integer> nums = new MyHeap<Integer>(false);
+	nums.add(4);
+	System.out.println("should be 4: " + nums.peek());
+	nums.add(10);
+	System.out.println("should be 4: " + nums.peek());
+	nums.add(1);
+	System.out.println("should be 1: " + nums.peek());
+	nums.add(9);
+	System.out.println("should be 1: " + nums.peek());
+	nums.add(25);
+	System.out.println("should be 1: " + nums.peek());
+	nums.add(3);
+	System.out.println("should be 1: " + nums.peek());
+	nums.add(8);
+	System.out.println("should be 1: " + nums.peek());
+	System.out.println(nums.toString());
     }
 	
 }
