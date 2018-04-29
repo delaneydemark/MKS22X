@@ -20,8 +20,13 @@ public class MyHeap{
 
     public void add(String s){
 	if(this.size()==data.length){
-	    
+	    this.resize();
 	}
+	data[size] = s;
+	int child = size;
+	int parent = (size-1)/2;
+	while(parent>=0 && compareTo(data[parent], data[child])<0)
+	
     }
 
     public void resize(){
