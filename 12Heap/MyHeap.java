@@ -107,6 +107,8 @@ public class MyHeap{
 	System.out.println(test.peek());
 	test.add("wooo");
 	System.out.println(test.peek());
+	test.remove();
+	System.out.println(test.peek());
 
     }
 	
