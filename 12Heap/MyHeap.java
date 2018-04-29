@@ -47,10 +47,11 @@ public class MyHeap{
 	data = d;
     }
 
-    /*public String remove(){
+    public String remove(){
 	String a = data[0];
-	
-	}*/
+	data[0] = data[size-1];
+	data[size-1] = null;
+    }
 
     public String peek(){
 	if(this.size()<=0){
