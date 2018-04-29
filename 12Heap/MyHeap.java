@@ -1,27 +1,29 @@
 import java.io.*;
 import java.util.*;
 
-public class MyHeap{
+@SuppressWarnings("unchecked")
+public class MyHeap<T extends Comparable<T>>{
 
-    private String[] data;
+    private T[] data;
     private int size;
     private boolean max;
     
     
-
+    @SuppressWarnings("unchecked")
     public MyHeap(){
-	data = new String[10];
+	data = (T[]) new Comparable[10];
 	size = 0;
 	max = true;
     }
 
+    @SuppressWarnings("unchecked")
     public MyHeap(boolean b){
-	data = new String[10];
+	data = (T[]) new Comparable[10];
 	size = 0;
 	max = b;
     }
 
-    public void add(String s){
+    public void add(T s){
 	if(this.size()==data.length){
 	    this.resize();
 	}
@@ -29,7 +31,7 @@ public class MyHeap{
 	int child = size;
 	int parent = (size-1)/2;
 	while(parent>=0 && compareTo(data[parent], data[child])<0){
-	    String a = data[child];
+	    T a = data[child];
 	    data[child] = data[parent];
 	    data[parent] = a;
 	    child = parent;
@@ -40,15 +42,15 @@ public class MyHeap{
     }
 
     public void resize(){
-	String[] d = new String[data.length*2];
+	T[] d = (T[]) new Comparable[data.length*2];
 	for(int i = 0; i<data.length; i++){
 	    d[i] = data[i];
 	}
 	data = d;
     }
 
-    public String remove(){
-	String a = data[0];
+    public T remove(){
+	T a = data[0];
 	data[0] = data[size-1];
 	data[size-1] = null;
 	size--;
@@ -61,18 +63,18 @@ public class MyHeap{
 	int child = parent*2 + 1;
 	while(child<size && compareTo(data[parent], data[child])<0 || child+1<size && compareTo(data[parent], data[child+1])<0){
 	    if(child+1>=size){
-		String a = data[parent];
+		T a = data[parent];
 		data[parent] = data[child];
 		data[child] = a;
 		parent = child;
 		return;
 	    }else if(compareTo(data[parent], data[child])<0){
-		String a = data[parent];
+		T a = data[parent];
 		data[parent] = data[child];
 		data[child] = a;
 		parent = child;
 	    }else{
-		String a = data[parent];
+		T a = data[parent];
 		data[parent] = data[child+1];
 		data[child+1] = a;
 		parent = child+1;
@@ -81,9 +83,9 @@ public class MyHeap{
 	}
     }
 
-    public String peek(){
+    public T peek(){
 	if(this.size()<=0){
-	    return "";
+	    return null;
 	}
 	return data[0];
     }
@@ -92,7 +94,7 @@ public class MyHeap{
 	return size;
     }
 
-    private int compareTo(String a, String b){
+    private int compareTo(T a, T b){
 	if(!max){
 	    return a.compareTo(b) * -1;
 	}
