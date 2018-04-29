@@ -47,10 +47,10 @@ public class MyHeap{
 	data = d;
     }
 
-    public String remove(){
+    /*public String remove(){
 	String a = data[0];
-	data
-    }
+	
+	}*/
 
     public String peek(){
 	if(this.size()<=0){
@@ -74,7 +74,7 @@ public class MyHeap{
 	MyHeap test = new MyHeap();
 	test.add("s");
 	System.out.println(test.peek());
-	test.add("hi");
+	test.add("zzzzzzzzzzzzz");
 	System.out.println(test.peek());
 	test.add("wooo");
 	System.out.println(test.peek());
