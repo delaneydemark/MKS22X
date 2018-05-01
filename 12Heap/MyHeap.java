@@ -83,6 +83,13 @@ public class MyHeap<T extends Comparable<T>>{
 	}
     }
 
+    public void heapify(T[] arr){
+	this.data = arr;
+	this.size = arr.length;
+	for(int i = size-1; i>=0; i--){
+	}
+    }
+
     public T peek(){
 	if(this.size()<=0){
 	    return null;
