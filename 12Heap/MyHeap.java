@@ -54,12 +54,12 @@ public class MyHeap<T extends Comparable<T>>{
 	data[0] = data[size-1];
 	data[size-1] = null;
 	size--;
-	pushDown();
+	pushDown(0);
 	return a;
     }
 
-    private void pushDown(){
-	int parent = 0;
+    private void pushDown(int index){
+	int parent = index;
 	int child = parent*2 + 1;
 	while(child<size && compareTo(data[parent], data[child])<0 || child+1<size && compareTo(data[parent], data[child+1])<0){
 	    if(child+1>=size){
