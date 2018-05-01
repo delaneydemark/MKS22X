@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class RunningMedians{
     private MyHeap<Double> max;
     private MyHeap<Double> min;
@@ -35,5 +37,24 @@ public class RunningMedians{
     }
 
     public double getMedian(){
+	if(size()==0){
+	    throw new NoSuchElementException();
+	}
+	if(max.size() - min.size() == 1){
+	    median = max.peek();
+	}else if(min.size() - max.size() ==1){
+	    median = min.peek();
+	}else{
+	    median = (min.peek() + max.peek()) / 2;
+	}
+	return median;
+    }
+
+    public static void main(String[] args){
+	RunningMedians test = new RunningMedians();
+	test.add(3.0);
+	test.add(5.0);
+	test.add(7.0);
+	System.out.println(test.getMedian());
     }
 }
