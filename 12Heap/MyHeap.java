@@ -87,6 +87,9 @@ public class MyHeap<T extends Comparable<T>>{
 	this.data = arr;
 	this.size = arr.length;
 	for(int i = size-1; i>=0; i--){
+	    if(i*2 + 1 < size){
+		this.pushDown(i);
+	    }
 	}
     }
 
