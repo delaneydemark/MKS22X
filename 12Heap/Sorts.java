@@ -4,7 +4,7 @@ import java.util.*;
 public class Sorts{
     public static void heapsort(Integer[] arr){
 	MyHeap<Integer> nums = MyHeap.heapify(arr);
-	System.out.println(Arrays.toString(arr));
+	//System.out.println(Arrays.toString(arr));
 	for(int i = 0; i<nums.size(); i++){
 	    Integer val = nums.remove();
 	    arr[nums.size()] = val;
