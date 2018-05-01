@@ -86,7 +86,7 @@ public class MyHeap<T extends Comparable<T>>{
     public void heapify(T[] arr){
 	this.data = arr;
 	this.size = arr.length;
-	for(int i = size-1; i>=0; i--){
+	for(int i = 0; i<size; i++){
 	    if(i*2 + 1 < size){
 		this.pushDown(i);
 	    }
@@ -142,7 +142,22 @@ public class MyHeap<T extends Comparable<T>>{
 	System.out.println("should be 1: " + nums.peek());
 	nums.add(8);
 	System.out.println("should be 1: " + nums.peek());
+	nums.remove();
+	System.out.println("should be 3: " + nums.peek());
+	nums.remove();
+	System.out.println("should be 4: " + nums.peek());
 	System.out.println(nums.toString());
+
+	MyHeap<Integer> n = new MyHeap<Integer>();
+	Integer[] vals = new Integer[5];
+	vals[0] = 4;
+	vals[1] = 7;
+	vals[2] = 10;
+	vals[3] = 5;
+	vals[4] = 3;
+	System.out.println(Arrays.toString(vals));
+	n.heapify(vals);
+	System.out.println(n.toString());
     }
 	
 }
