@@ -68,7 +68,7 @@ public class MyHeap<T extends Comparable<T>>{
 		data[child] = a;
 		parent = child;
 		return;
-	    }else if(compareTo(data[parent], data[child])<0){
+	    }else if(compareTo(data[parent], data[child])<0 && compareTo(data[child], data[child+1])>0){
 		T a = data[parent];
 		data[parent] = data[child];
 		data[child] = a;
@@ -86,10 +86,8 @@ public class MyHeap<T extends Comparable<T>>{
     public void heapify(T[] arr){
 	this.data = arr;
 	this.size = arr.length;
-	for(int i = 0; i<size; i++){
-	    if(i*2 + 1 < size){
-		this.pushDown(i);
-	    }
+	for(int i = size-1; i>=0; i--){ 
+	    this.pushDown(i);
 	}
     }
 
@@ -144,6 +142,7 @@ public class MyHeap<T extends Comparable<T>>{
 	System.out.println("should be 1: " + nums.peek());
 	nums.remove();
 	System.out.println("should be 3: " + nums.peek());
+	System.out.println(nums.toString());
 	nums.remove();
 	System.out.println("should be 4: " + nums.peek());
 	System.out.println(nums.toString());
