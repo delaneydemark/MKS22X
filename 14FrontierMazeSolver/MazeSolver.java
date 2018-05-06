@@ -10,10 +10,15 @@ public class MazeSolver{
   public boolean solve(){ return solve(0); }
 
   //mode: required to allow for alternate solve modes.
-  //0: BFS
-  //1: DFS
+  //0: BFS --> queue
+  //1: DFS --> stack
   public boolean solve(int mode){
     //initialize your frontier
+      if(mode==0){
+	  frontier = new FrontierQueue();
+      }else{
+	  frontier = new FrontierStack();
+      }
     //while there is stuff in the frontier:
     //  get the next location
     //  process the location to find the locations (use the maze to do this)
