@@ -5,7 +5,7 @@ public class FrontierQueue implements Frontier{
 	locations = new LinkedList<Location>();
     }
 
-    public void add(Location s){
+    public void add(Location n){
 	locations.add(s);
     }
 
