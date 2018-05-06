@@ -20,10 +20,20 @@ public class MazeSolver{
 	  frontier = new FrontierStack();
       }
     //while there is stuff in the frontier:
-    //  get the next location
-    //  process the location to find the locations (use the maze to do this)
-    //  check if any locations are the end, if you found the end just return true!
-    //  add all the locations to the frontier
+      while(frontier.hasNext()){
+	  //  get the next location
+	  //  process the location to find the locations (use the maze to do this)
+	  Location[] neighbors = maze.getNeighbors(frontier.next());
+	  //  check if any locations are the end, if you found the end just return true!
+	  for(int i = 0; i<neighbors.length; i++){
+	      if(neighbors[i].equals(maze.getEnd())){
+		  return true;
+	      }
+	      //  add all the locations to the frontier
+	      frontier.add(neighbors[i]);
+	  }
+	
+      }
     //when there are no more values in the frontier return false
     return false;
   }
