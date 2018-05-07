@@ -1,19 +1,22 @@
+import java.util.*;
+
+@SuppressWarnings("unchecked")
 public class FrontierStack implements Frontier{
-    private Stack locations;
+    private LinkedList<Location> locations;
 
     public FrontierStack(){
-	locations = new Stack();
+	locations = new LinkedList();
     }
 
     public void add(Location n){
-	locations.push(n);
+	locations.addLast(n);
     }
 
     public Location next(){
-	return locations.pop();
+	return locations.removeLast();
     }
 
     public boolean hasNext(){
-	return !locations.empty();
+	return locations.size()!=0;
     }
 }

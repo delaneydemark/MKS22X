@@ -1,19 +1,21 @@
+import java.util.*;
+
 public class FrontierQueue implements Frontier{
-    private Queue<Location> locations;
+    private LinkedList<Location> locations;
 
     public FrontierQueue(){
 	locations = new LinkedList<Location>();
     }
 
     public void add(Location n){
-	locations.add(s);
+	locations.addLast(n);
     }
 
     public Location next(){
-	return locations.remove();
+	return locations.removeFirst();
     }
 
     public boolean hasNext(){
-	return locations.peek()!=null;
+	return locations.size()!=0;
     }
 }
