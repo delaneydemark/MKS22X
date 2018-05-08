@@ -60,6 +60,6 @@ public class MazeSolver{
     public static void main(String[] args){
 	MazeSolver test = new MazeSolver("data1.dat");
 
-	System.out.println(test.solve(0));
+	System.out.println(test.solve(1));
     }
 }
