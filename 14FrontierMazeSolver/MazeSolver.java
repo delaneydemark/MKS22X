@@ -23,22 +23,30 @@ public class MazeSolver{
 	    frontier = new FrontierStack();
 	}
 	//while there is stuff in the frontier:
+	frontier.add(maze.getStart());
 	while(frontier.hasNext()){
 	    //  get the next location
+	    Location loc = frontier.next();
 	    //  process the location to find the locations (use the maze to do this)
-	    Location[] neighbors = maze.getNeighbors(frontier.next());
+	    Location[] neighbors = maze.getNeighbors(loc);
 	    //  check if any locations are the end, if you found the end just return true!
 	    for(int i = 0; i<neighbors.length; i++){
+	       
 		if(neighbors[i]!=null){
-		    if(neighbors[i].getX()==maze.getEnd().getX() && neighbors[i].getY()==maze.getEnd().getY()){
+		    char place = maze.get(neighbors[i].getX(), neighbors[i].getY());
+		    if(place=='E'){
+			maze.set(loc.getX(), loc.getY(), '.');
+			System.out.println(maze.toStringColor());
 			return true;
 		    }
-		//  add all the locations to the frontier
-		frontier.add(neighbors[i]);
+		    //  add all the locations to the frontier
+		    if(place==' '){	
+			frontier.add(neighbors[i]);
+		    }
 		}
 	    }
 	    if(animate){
-		System.out.println(toString());
+		System.out.println(maze.toStringColor());
 	    }
 	}
 	//when there are no more values in the frontier return false
