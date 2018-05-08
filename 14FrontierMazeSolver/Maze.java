@@ -29,7 +29,7 @@ public class Maze{
       if(L.getY()+1 < maze.length){
 	  neighbors[3] = new Location(L.getX(), L.getY()+1, L);
       }
-    return null;
+    return neighbors;
   }
 
   public Location getStart(){
