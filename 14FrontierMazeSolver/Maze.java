@@ -17,17 +17,19 @@ public class Maze{
   */
   public Location[] getNeighbors(Location L){
       Location[] neighbors = new Location[4];
-      if(L.getX()-1 >= 0){
-	  neighbors[0] = new Location(L.getX()-1, L.getY(), L);
+      int x = L.getX();
+      int y = L.getY();
+      if(x-1 >= 0 && (maze[x-1][y]==' ' || maze[x-1][y]=='E')){
+	  neighbors[0] = new Location(x-1, y, L);
       }
-      if(L.getX()+1 < maze[0].length){
-	  neighbors[1] = new Location(L.getX()+1, L.getY(), L);
+      if(x+1 < maze[0].length && (maze[x+1][y]==' ' || maze[x+1][y]=='E')){
+	  neighbors[1] = new Location(x+1, y, L);
       }
-      if(L.getY()-1 >= 0){
-	  neighbors[2] = new Location(L.getX(), L.getY()-1, L);
+      if(y-1 >= 0 && (maze[x][y-1]==' ' || maze[x][y-1]=='E')){
+	  neighbors[2] = new Location(x, y-1, L);
       }
-      if(L.getY()+1 < maze.length){
-	  neighbors[3] = new Location(L.getX(), L.getY()+1, L);
+      if(y+1 < maze.length && (maze[x][y+1]==' ' || maze[x][y+1]=='E')){
+	  neighbors[3] = new Location(x, y+1, L);
       }
     return neighbors;
   }
