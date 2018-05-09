@@ -33,14 +33,15 @@ public class MazeSolver{
 	    for(int i = 0; i<neighbors.length; i++){
 	       
 		if(neighbors[i]!=null){
-		    char place = maze.get(neighbors[i].getX(), neighbors[i].getY());
-		    if(place=='E'){
+		    //char place = maze.get(neighbors[i].getX(), neighbors[i].getY());
+		    if(maze.getEnd().getX()==neighbors[i].getX() &&
+		       maze.getEnd().getY()==neighbors[i].getY()){
 			maze.set(loc.getX(), loc.getY(), '.');
 			System.out.println(maze.toStringColor());
 			return true;
 		    }
 		    //  add all the locations to the frontier
-		    if(place==' '){	
+		    if(maze.get(neighbors[i].getX(), neighbors[i].getY()) == ' '){	
 			frontier.add(neighbors[i]);
 		    }
 		}
@@ -60,6 +61,6 @@ public class MazeSolver{
     public static void main(String[] args){
 	MazeSolver test = new MazeSolver("data1.dat");
 
-	System.out.println(test.solve(1));
+	System.out.println(test.solve(0));
     }
 }
