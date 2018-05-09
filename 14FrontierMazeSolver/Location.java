@@ -23,4 +23,8 @@ public class Location implements Comparable<Location>{
     public int getY(){
 	return y;
     }
+
+    public int compareTo(Location a, Location b){
+	return a.distanceToStart = b.distanceToStart;
+    }
 }
