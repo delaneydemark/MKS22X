@@ -1,4 +1,4 @@
-public class Location implements Comparable<Location>{
+public class Location extends Comparable<Location>{
     private int x,y;
     private Location previous;
     private int distanceToStart;
@@ -25,6 +25,6 @@ public class Location implements Comparable<Location>{
     }
 
     public int compareTo(Location a, Location b){
-	return a.distanceToStart = b.distanceToStart;
+	return a.distanceToStart - b.distanceToStart;
     }
 }
