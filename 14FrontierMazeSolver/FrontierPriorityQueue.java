@@ -10,7 +10,7 @@ public class FrontierPriorityQueue{
     }
 
     public boolean hasNext(){
-	return !locations.size()==0;
+	return locations.size()!=0;
     }
 
     public Location next(){

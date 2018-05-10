@@ -20,16 +20,20 @@ public class Maze{
       int x = L.getX();
       int y = L.getY();
       if(x-1 >= 0 && (maze[x-1][y]==' ' || maze[x-1][y]=='E')){
-	  neighbors[0] = new Location(x-1, y, L);
+	  int d = java.lang.Math.abs(end.getX()-(x-1)) + java.lang.Math.abs(end.getY()-y);
+	  neighbors[0] = new Location(x-1, y, L, d );
       }
       if(x+1 < maze[0].length && (maze[x+1][y]==' ' || maze[x+1][y]=='E')){
-	  neighbors[1] = new Location(x+1, y, L);
+	  int d = java.lang.Math.abs(end.getX()-(x+1)) + java.lang.Math.abs(end.getY()-y);
+	  neighbors[1] = new Location(x+1, y, L, d);
       }
       if(y-1 >= 0 && (maze[x][y-1]==' ' || maze[x][y-1]=='E')){
-	  neighbors[2] = new Location(x, y-1, L);
+	  int d = java.lang.Math.abs(end.getX()-x) + java.lang.Math.abs(end.getY()-(y-1));
+	  neighbors[2] = new Location(x, y-1, L, d);
       }
       if(y+1 < maze.length && (maze[x][y+1]==' ' || maze[x][y+1]=='E')){
-	  neighbors[3] = new Location(x, y+1, L);
+	  int d = java.lang.Math.abs(end.getX()-x) + java.lang.Math.abs(end.getY()-(y+1));
+	  neighbors[3] = new Location(x, y+1, L, d);
       }
     return neighbors;
   }
@@ -105,8 +109,9 @@ public class Maze{
     The start/end Locations may need more information later when we add
     other kinds of frontiers!
     */
-    end = new Location(endr,endc, null);
-    start = new Location(startr,startc, null);
+    int distance = java.lang.Math.abs((endr - startr)) + java.lang.Math.abs((endc-startc));
+    end = new Location(endr,endc, void, 0);
+    start = new Location(startr,startc, void, distance);
   }
 
   public String toStringColor(){
