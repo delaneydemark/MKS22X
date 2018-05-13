@@ -19,21 +19,25 @@ public class Maze{
       Location[] neighbors = new Location[4];
       int x = L.getX();
       int y = L.getY();
+      int index = 0;
       if(x-1 >= 0 && (maze[x-1][y]==' ' || maze[x-1][y]=='E')){
-	  int d = java.lang.Math.abs(end.getX()-(x-1)) + java.lang.Math.abs(end.getY()-y);
-	  neighbors[0] = new Location(x-1, y, L, d );
+	  int d = Math.abs(end.getX()-(x-1)) + Math.abs(end.getY()-y);
+	  neighbors[index] = new Location(x-1, y, L, d );
+	  index++;
       }
       if(x+1 < maze[0].length && (maze[x+1][y]==' ' || maze[x+1][y]=='E')){
-	  int d = java.lang.Math.abs(end.getX()-(x+1)) + java.lang.Math.abs(end.getY()-y);
-	  neighbors[1] = new Location(x+1, y, L, d);
+	  int d = Math.abs(end.getX()-(x+1)) + Math.abs(end.getY()-y);
+	  neighbors[index] = new Location(x+1, y, L, d);
+	  index++;
       }
       if(y-1 >= 0 && (maze[x][y-1]==' ' || maze[x][y-1]=='E')){
-	  int d = java.lang.Math.abs(end.getX()-x) + java.lang.Math.abs(end.getY()-(y-1));
-	  neighbors[2] = new Location(x, y-1, L, d);
+	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y-1));
+	  neighbors[index] = new Location(x, y-1, L, d);
+	  index++;
       }
       if(y+1 < maze.length && (maze[x][y+1]==' ' || maze[x][y+1]=='E')){
-	  int d = java.lang.Math.abs(end.getX()-x) + java.lang.Math.abs(end.getY()-(y+1));
-	  neighbors[3] = new Location(x, y+1, L, d);
+	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y+1));
+	  neighbors[index] = new Location(x, y+1, L, d);
       }
     return neighbors;
   }
@@ -109,9 +113,9 @@ public class Maze{
     The start/end Locations may need more information later when we add
     other kinds of frontiers!
     */
-    int distance = java.lang.Math.abs((endr - startr)) + java.lang.Math.abs((endc-startc));
-    end = new Location(endr,endc, void, 0);
-    start = new Location(startr,startc, void, distance);
+    int distance = Math.abs((endr - startr)) + Math.abs((endc-startc));
+    end = new Location(endr,endc, null, 0);
+    start = new Location(startr,startc, null, distance);
   }
 
   public String toStringColor(){

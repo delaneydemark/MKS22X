@@ -1,7 +1,7 @@
-public class Location extends Comparable<Location>{
+public class Location implements Comparable<Location>{
     private int x,y;
     private Location previous;
-    private int distanceToStart;
+    private int distanceToEnd;
 
     public Location(int _x, int _y, Location prev){
 	x = _x;
@@ -13,7 +13,7 @@ public class Location extends Comparable<Location>{
 	x = _x;
 	y = _y;
 	previous = prev;
-	distanceToStart = d;
+	distanceToEnd = d;
     }
 
     public int getX(){
@@ -24,7 +24,11 @@ public class Location extends Comparable<Location>{
 	return y;
     }
 
-    public int compareTo(Location a, Location b){
-	return a.distanceToStart - b.distanceToStart;
+    public Location getPrev(){
+	return previous;
+    }
+
+    public int compareTo(Location b){
+	return this.distanceToEnd - b.distanceToEnd;
     }
 }

@@ -28,22 +28,28 @@ public class MazeSolver{
 	    //  get the next location
 	    Location loc = frontier.next();
 	    //  process the location to find the locations (use the maze to do this)
+	    maze.set(loc.getX(), loc.getY(), '.');
 	    Location[] neighbors = maze.getNeighbors(loc);
 	    //  check if any locations are the end, if you found the end just return true!
-	    for(int i = 0; i<neighbors.length; i++){
-	       
-		if(neighbors[i]!=null){
+	    for(int i = 0; i<neighbors.length && neighbors[i]!=null; i++){
 		    if(maze.getEnd().getX()==neighbors[i].getX() &&
 		       maze.getEnd().getY()==neighbors[i].getY()){
-			maze.set(loc.getX(), loc.getY(), '.');
-			System.out.println(maze.toStringColor());
+			//maze.set(loc.getX(), loc.getY(), '.');
+			Location l = neighbors[i].getPrev();
+			while(l.getX()!=maze.getStart().getX() || l.getY()!=maze.getStart().getY()){
+			    maze.set(l.getX(), l.getY(), '@');
+			    l = l.getPrev();
+			    System.out.println(maze.toStringColor());
+			}
+			//System.out.println(maze.toStringColor());
+			
 			return true;
 		    }
 		    //  add all the locations to the frontier
 		   	
 		    frontier.add(neighbors[i]);
 		    
-		}
+		
 	    }
 	    if(animate){
 		System.out.println(maze.toStringColor());
