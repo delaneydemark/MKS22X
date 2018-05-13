@@ -42,7 +42,8 @@ public class MazeSolver{
 			    System.out.println(maze.toStringColor());
 			}
 			//System.out.println(maze.toStringColor());
-			
+			maze.set(maze.getStart().getX(), maze.getStart().getY(), '@');
+			System.out.println(maze.toStringColor());
 			return true;
 		    }
 		    //  add all the locations to the frontier
