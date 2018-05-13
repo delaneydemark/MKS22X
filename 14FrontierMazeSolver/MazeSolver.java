@@ -64,7 +64,7 @@ public class MazeSolver{
     }
 
     public static void main(String[] args){
-	MazeSolver test = new MazeSolver("data1.dat");
+	MazeSolver test = new MazeSolver("data2.dat");
 
 	System.out.println(test.solve(1));
     }

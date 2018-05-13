@@ -20,24 +20,24 @@ public class Maze{
       int x = L.getX();
       int y = L.getY();
       int index = 0;
-      if(x-1 >= 0 && (maze[x-1][y]==' ' || maze[x-1][y]=='E')){
-	  int d = Math.abs(end.getX()-(x-1)) + Math.abs(end.getY()-y);
-	  neighbors[index] = new Location(x-1, y, L, d );
-	  index++;
-      }
-      if(x+1 < maze[0].length && (maze[x+1][y]==' ' || maze[x+1][y]=='E')){
+      if(x+1 >= 0 && (maze[x+1][y]==' ' || maze[x+1][y]=='E')){
 	  int d = Math.abs(end.getX()-(x+1)) + Math.abs(end.getY()-y);
-	  neighbors[index] = new Location(x+1, y, L, d);
+	  neighbors[index] = new Location(x+1, y, L, d );
 	  index++;
       }
-      if(y-1 >= 0 && (maze[x][y-1]==' ' || maze[x][y-1]=='E')){
-	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y-1));
-	  neighbors[index] = new Location(x, y-1, L, d);
+      if(x-1 < maze[0].length && (maze[x-1][y]==' ' || maze[x-1][y]=='E')){
+	  int d = Math.abs(end.getX()-(x-1)) + Math.abs(end.getY()-y);
+	  neighbors[index] = new Location(x-1, y, L, d);
 	  index++;
       }
-      if(y+1 < maze.length && (maze[x][y+1]==' ' || maze[x][y+1]=='E')){
+      if(y+1 >= 0 && (maze[x][y+1]==' ' || maze[x][y+1]=='E')){
 	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y+1));
 	  neighbors[index] = new Location(x, y+1, L, d);
+	  index++;
+      }
+      if(y-1 < maze.length && (maze[x][y-1]==' ' || maze[x][y-1]=='E')){
+	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y-1));
+	  neighbors[index] = new Location(x, y-1, L, d);
       }
     return neighbors;
   }
