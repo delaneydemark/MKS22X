@@ -19,8 +19,10 @@ public class MazeSolver{
 	//initialize your frontier
 	if(mode==0){
 	    frontier = new FrontierQueue();
-	}else{
+	}else if(mode==1){
 	    frontier = new FrontierStack();
+	}else{
+	    frontier = new FrontierPriorityQueue();
 	}
 	//while there is stuff in the frontier:
 	frontier.add(maze.getStart());
@@ -67,6 +69,6 @@ public class MazeSolver{
     public static void main(String[] args){
 	MazeSolver test = new MazeSolver("data2.dat");
 
-	System.out.println(test.solve(1));
+	System.out.println(test.solve(2));
     }
 }
