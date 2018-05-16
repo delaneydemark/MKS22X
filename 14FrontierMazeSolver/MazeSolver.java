@@ -18,10 +18,16 @@ public class MazeSolver{
     public boolean solve(int mode){
 	//initialize your frontier
 	if(mode==0){
+	    maze.setAStar(false);
 	    frontier = new FrontierQueue();
 	}else if(mode==1){
+	    maze.setAStar(false);
 	    frontier = new FrontierStack();
+	}else if (mode==2){
+	    maze.setAStar(false);
+	    frontier = new FrontierPriorityQueue();
 	}else{
+	    maze.setAStar(true);
 	    frontier = new FrontierPriorityQueue();
 	}
 	//while there is stuff in the frontier:
@@ -67,8 +73,8 @@ public class MazeSolver{
     }
 
     public static void main(String[] args){
-	MazeSolver test = new MazeSolver("data2.dat");
+	MazeSolver test = new MazeSolver("data3.dat");
 
-	System.out.println(test.solve(2));
+	System.out.println(test.solve(3));
     }
 }

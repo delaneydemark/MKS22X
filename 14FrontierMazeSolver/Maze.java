@@ -2,11 +2,12 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.*;
 public class Maze{
-  private static final String CLEAR_SCREEN =  "\033[2J";
-  private static final String HIDE_CURSOR =  "\033[?25l";
-  private static final String SHOW_CURSOR =  "\033[?25h";
-  Location start,end;
-  private char[][]maze;
+    private static final String CLEAR_SCREEN =  "\033[2J";
+    private static final String HIDE_CURSOR =  "\033[?25l";
+    private static final String SHOW_CURSOR =  "\033[?25h";
+    Location start,end;
+    private char[][]maze;
+    private boolean AStar;
 
 
 
@@ -22,22 +23,22 @@ public class Maze{
       int index = 0;
       if(x+1 >= 0 && (maze[x+1][y]==' ' || maze[x+1][y]=='E')){
 	  int d = Math.abs(end.getX()-(x+1)) + Math.abs(end.getY()-y);
-	  neighbors[index] = new Location(x+1, y, L, d );
+	  neighbors[index] = new Location(x+1, y, L, d, AStar);
 	  index++;
       }
       if(x-1 < maze[0].length && (maze[x-1][y]==' ' || maze[x-1][y]=='E')){
 	  int d = Math.abs(end.getX()-(x-1)) + Math.abs(end.getY()-y);
-	  neighbors[index] = new Location(x-1, y, L, d);
+	  neighbors[index] = new Location(x-1, y, L, d, AStar);
 	  index++;
       }
       if(y+1 >= 0 && (maze[x][y+1]==' ' || maze[x][y+1]=='E')){
 	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y+1));
-	  neighbors[index] = new Location(x, y+1, L, d);
+	  neighbors[index] = new Location(x, y+1, L, d, AStar);
 	  index++;
       }
       if(y-1 < maze.length && (maze[x][y-1]==' ' || maze[x][y-1]=='E')){
 	  int d = Math.abs(end.getX()-x) + Math.abs(end.getY()-(y-1));
-	  neighbors[index] = new Location(x, y-1, L, d);
+	  neighbors[index] = new Location(x, y-1, L, d, AStar);
       }
     return neighbors;
   }
@@ -61,6 +62,7 @@ public class Maze{
     System.out.println(CLEAR_SCREEN+"\033[1;1H");
   }
   public Maze(String filename){
+      AStar = false;
     ArrayList<char[]> lines = new ArrayList<char[]>();
     int startr=-1, startc=-1;
     int endr=-1,endc=-1;
@@ -114,8 +116,8 @@ public class Maze{
     other kinds of frontiers!
     */
     int distance = Math.abs((endr - startr)) + Math.abs((endc-startc));
-    end = new Location(endr,endc, null, 0);
-    start = new Location(startr,startc, null, distance);
+    end = new Location(endr,endc, null, 0, AStar);
+    start = new Location(startr,startc, null, distance, AStar);
   }
 
   public String toStringColor(){
@@ -184,4 +186,12 @@ public class Maze{
     }
     return ans;
   }
+
+    public void setAStar(boolean a){
+	AStar = a;
+    }
+
+    public boolean getAStar(){
+	return AStar;
+    }
 }
