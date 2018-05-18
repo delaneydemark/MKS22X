@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class RunningMedians{
+public class RunningMedian{
     private MyHeap<Double> max;
     private MyHeap<Double> min;
     private double median;
 
-    public RunningMedians(){
+    public RunningMedian(){
 	max = new MyHeap<Double>();
 	min = new MyHeap<Double>(false);
 	median = 0;
@@ -51,7 +51,7 @@ public class RunningMedians{
     }
 
     public static void main(String[] args){
-	RunningMedians test = new RunningMedians();
+	RunningMedian test = new RunningMedian();
 	test.add(3.0);
 	test.add(5.0);
 	test.add(7.0);
