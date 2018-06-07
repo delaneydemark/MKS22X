@@ -47,11 +47,11 @@ public class MazeSolver{
 			while(l.getX()!=maze.getStart().getX() || l.getY()!=maze.getStart().getY()){
 			    maze.set(l.getX(), l.getY(), '@');
 			    l = l.getPrev();
-			    System.out.println(maze.toStringColor());
+			   // System.out.println(maze.toStringColor());
 			}
 			//System.out.println(maze.toStringColor());
 			maze.set(maze.getStart().getX(), maze.getStart().getY(), '@');
-			System.out.println(maze.toStringColor());
+			//System.out.println(maze.toStringColor());
 			return true;
 		    }
 		    //  add all the locations to the frontier
@@ -61,7 +61,7 @@ public class MazeSolver{
 		
 	    }
 	    if(animate){
-		System.out.println(maze.toStringColor());
+		//System.out.println(maze.toStringColor());
 	    }
 	}
 	//when there are no more values in the frontier return false
